@@ -93,6 +93,6 @@ func squadSDKWebViewDidDismiss(_ squadSDK: SquadSDK) {
 ## Next Steps
 
 - Explore [Squad Line](squad-line.md) capabilities
-- Learn more about [User Authentication](user-auth.md)
+- [Troubleshooting](troubleshooting.md)
 
 If you have any questions or need further assistance, please visit our [Support Center](https://support.withyoursquad.com) or contact us at support@withyoursquad.com.

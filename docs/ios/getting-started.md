@@ -83,8 +83,10 @@ The Squad UI will be presented modally, providing access to social features, voi
 
 ## Next Steps
 
+- Initialize the [Squad SDK](sdk-init.md)
 - Learn more about [User Authentication](user-auth.md)
 - Handle [WebView Events](webview-events.md)
 - Explore [Squad Line](../squad-line.md) capabilities
+- [Troubleshooting](troubleshooting.md)
 
 If you have any questions or need further assistance, please visit our [Support Center](https://support.withyoursquad.com) or contact us at support@withyoursquad.com.

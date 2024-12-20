@@ -171,7 +171,7 @@ enum SquadSDKError: Error {
 
 ## Support
 
-- Documentation: [Squad Developer Docs](https://developer.withyoursquad.com)
+- Documentation: [Squad Developer Docs](https://docs.withyoursquad.com)
 - Support Email: support@withyoursquad.com
 
 ---
