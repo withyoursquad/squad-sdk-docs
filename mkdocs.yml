@@ -1,0 +1,8 @@
+site_name: Squad SDK Documentation
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - iOS: ios/getting-started.md
+  - Android: android/getting-started.md
+  - React Native: react-native/getting-started.md
