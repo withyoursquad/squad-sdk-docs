@@ -5,6 +5,10 @@ nav:
   - Home: index.md
   - iOS:
       - Overview: ios/getting-started.md
+      - SDK Init: ios/sdk-init.md
+      - User Auth: ios/user-auth.md
+      - WebView Events: ios/webview-events.md
+      - Troubleshooting: ios/troubleshooting.md
   - Android:
       - Overview: android/getting-started.md
   - React Native:

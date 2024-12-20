@@ -20,15 +20,11 @@ The Squad SDK enables you to integrate Squad's social features, voice calling, f
 
 ## Guides & Tutorials
 
-- [iOS Quick Start](ios/quick-start.md)
-- [Initializing the SDK](ios/sdk-init.md)
-- [Authenticating Users](ios/user-auth.md)
-- [Presenting the WebView](ios/webview-present.md)
 - [Squad Line](ios/squad-line.md)
 - [Troubleshooting Common Issues](ios/troubleshooting.md)
 
 ## Additional Resources
 
-- [GitHub Repo](https://github.com/withyoursquad/squad-sports-ios)
-- [Release Notes](https://github.com/withyoursquad/squad-sports-ios/tree/main/changelogs)
+- [GitHub Repo for iOS](https://github.com/withyoursquad/squad-sports-ios)
+- [Release Notes for iOS](https://github.com/withyoursquad/squad-sports-ios/tree/main/changelogs)
 - [Support Center](https://support.withyoursquad.com)

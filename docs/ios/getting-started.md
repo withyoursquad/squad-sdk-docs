@@ -85,6 +85,6 @@ The Squad UI will be presented modally, providing access to social features, voi
 
 - Learn more about [User Authentication](user-auth.md)
 - Handle [WebView Events](webview-events.md)
-- Explore [Squad Line](squad-line.md) capabilities
+- Explore [Squad Line](../squad-line.md) capabilities
 
 If you have any questions or need further assistance, please visit our [Support Center](https://support.withyoursquad.com) or contact us at support@withyoursquad.com.
