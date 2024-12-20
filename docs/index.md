@@ -17,11 +17,6 @@ The Squad SDK enables you to integrate Squad's social features, voice calling, f
 - [User Initialization](user-init.md)
 - [WebView Integration](webview-integration.md)
 - [Squad Experience](squad-experience.md)
-  - [Freestyles](freestyles.md)
-  - [Polls](polls.md)
-  - [Squad & Friend Management](squad-friends.md)
-  - [Squad Line Voice Calling](voice-calling.md)
-  - [Voice Messages](voice-messages.md)
 
 ## Guides & Tutorials
 
@@ -29,14 +24,8 @@ The Squad SDK enables you to integrate Squad's social features, voice calling, f
 - [Initializing the SDK](ios/sdk-init.md)
 - [Authenticating Users](ios/user-auth.md)
 - [Presenting the WebView](ios/webview-present.md)
-- [Handling Voice Calls](ios/voice-calls.md)
+- [Squad Line](ios/squad-line.md)
 - [Troubleshooting Common Issues](ios/troubleshooting.md)
-
-## API Reference
-
-- [SquadSDK](ios/api/squad-sdk.md)
-- [Models](ios/api/models.md)
-- [Errors](ios/api/errors.md)
 
 ## Additional Resources
 
