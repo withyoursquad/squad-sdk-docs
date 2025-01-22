@@ -62,35 +62,6 @@ To integrate the Squad SDK into your app:
 - [Sample Projects](resources/samples.md)
 - [Integration Examples](resources/examples.md)
 
-## Best Practices
-
-1. **Security**
-
-   - Implement proper authentication
-   - Configure content security policies
-   - Enable certificate pinning
-   - Secure data storage
-
-2. **Performance**
-
-   - Optimize memory usage
-   - Efficient resource management
-   - Background state handling
-   - Cache optimization
-
-3. **User Experience**
-
-   - Handle offline states
-   - Implement loading indicators
-   - Manage error states
-   - Maintain state consistency
-
-4. **Integration**
-   - Follow platform guidelines
-   - Implement proper lifecycle management
-   - Handle configuration changes
-   - Monitor analytics and errors
-
 ## Support and Resources
 
 - [Documentation Home](index.md)

@@ -1,161 +1,363 @@
-# Troubleshooting Squad SDK for Android
+# Android Troubleshooting Guide
 
-This guide helps you diagnose and resolve common issues when integrating and using the Squad SDK in your Android application.
+This guide addresses Android-specific issues and solutions when integrating the Squad SDK.
 
-## Common Issues and Solutions
+## Installation Issues
 
-### SDK Initialization Issues
+### Gradle Integration
 
-1. **SDK Not Initialized Error**
+#### Issue: Dependency Resolution
 
-```kotlin
-java.lang.IllegalStateException: Squad SDK is not initialized
+```
+Error: Failed to resolve: com.withsquad.sdk:squadline:1.0.0
 ```
 
-**Solution:**
+**Solutions:**
 
-- Ensure SDK is initialized in Application class
-- Check initialization order
-- Verify credentials
+1. Check repositories in settings.gradle:
 
-```kotlin
-class MyApplication : Application() {
-    override fun onCreate() {
-        super.onCreate()
+```gradle
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
+```
 
-        try {
-            SquadSDK.Builder(this)
-                .setOrganizationId("YOUR_ORG_ID")
-                .setApiKey("YOUR_API_KEY")
-                .build()
-                .initialize()
-        } catch (e: SquadSDKException) {
-            Log.e("SquadSDK", "Initialization failed", e)
+2. Force dependency refresh:
+
+```bash
+./gradlew clean build --refresh-dependencies
+```
+
+### Version Conflicts
+
+#### Issue: Dependency Version Conflicts
+
+```
+Error: Duplicate class found
+```
+
+**Solutions:**
+
+1. Add resolution strategy:
+
+```gradle
+configurations.all {
+    resolutionStrategy {
+        force 'com.withsquad.sdk:squadline:1.0.0'
+    }
+}
+```
+
+2. Check dependency tree:
+
+```bash
+./gradlew app:dependencies
+```
+
+## Build Issues
+
+### ProGuard/R8
+
+#### Issue: ProGuard Optimization Failures
+
+```
+Error: Class not found after ProGuard optimization
+```
+
+**Solutions:**
+
+1. Add ProGuard rules:
+
+```proguard
+-keep class com.withsquad.sdk.** { *; }
+-keepclassmembers class com.withsquad.sdk.** { *; }
+```
+
+2. Check mapping file:
+
+```bash
+build/outputs/mapping/release/mapping.txt
+```
+
+### Architecture Issues
+
+#### Issue: ABI Compatibility
+
+```
+Error: Unable to load native library
+```
+
+**Solutions:**
+
+1. Configure ABI filters:
+
+```gradle
+android {
+    defaultConfig {
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
         }
     }
 }
 ```
 
-2. **Invalid Credentials Error**
+## WebView Issues
 
-```kotlin
-SquadSDKException: Invalid API key or Organization ID
+### WebView Loading
+
+#### Issue: Content Loading Failures
+
+```
+Error: WebView failed to load content
 ```
 
-**Solution:**
+**Solutions:**
 
-- Verify credentials in developer dashboard
-- Check for environment mismatch
-- Ensure proper credential format
-
-### Authentication Issues
-
-1. **User Authentication Failed**
+1. Configure WebView properly:
 
 ```kotlin
-UserInitResult.Error: Authentication failed
+webView.settings.apply {
+    javaScriptEnabled = true
+    domStorageEnabled = true
+    mediaPlaybackRequiresUserGesture = false
+}
+
+webView.webViewClient = object : WebViewClient() {
+    override fun onReceivedError(
+        view: WebView?,
+        request: WebResourceRequest?,
+        error: WebResourceError?
+    ) {
+        // Handle error
+    }
+}
 ```
 
-**Solution:**
-
-- Check network connection
-- Verify user credentials
-- Ensure proper token format
+2. Handle SSL errors:
 
 ```kotlin
-// Implement retry logic
-private fun retryAuthentication(maxAttempts: Int = 3) {
-    var attempts = 0
-
-    fun authenticate() {
-        if (attempts >= maxAttempts) return
-
-        squadSDK.initializeUser(token = userToken) { result ->
-            when (result) {
-                is UserInitResult.Success -> {
-                    // Authentication successful
-                }
-                is UserInitResult.Error -> {
-                    attempts++
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        authenticate()
-                    }, 1000 * attempts)
-                }
-            }
+webView.webViewClient = object : WebViewClient() {
+    override fun onReceivedSslError(
+        view: WebView?,
+        handler: SslErrorHandler?,
+        error: SslError?
+    ) {
+        if (BuildConfig.DEBUG) {
+            handler?.proceed()
+        } else {
+            handler?.cancel()
         }
     }
-
-    authenticate()
 }
 ```
 
-2. **Token Expiration**
+### JavaScript Bridge
 
-```kotlin
-SquadError.SessionExpired: Token has expired
+#### Issue: Bridge Communication Failures
+
+```
+Error: JavaScript interface not working
 ```
 
-**Solution:**
+**Solutions:**
 
-- Implement token refresh
-- Handle expiration gracefully
-- Clear invalid tokens
-
-### WebView Issues
-
-1. **WebView Loading Failed**
+1. Verify bridge setup:
 
 ```kotlin
-WebViewError: Failed to load Squad experience
-```
-
-**Solution:**
-
-- Check internet connection
-- Verify WebView version
-- Clear WebView cache
-
-```kotlin
-private fun handleWebViewError(error: WebViewError) {
-    // Clear WebView cache
-    squadSDK.clearWebViewCache()
-
-    // Reset WebView state
-    squadSDK.resetWebView()
-
-    // Retry loading
-    squadSDK.reloadWebView()
-}
-```
-
-2. **WebView Performance Issues**
-
-**Solution:**
-
-- Optimize memory usage
-- Implement efficient lifecycle management
-- Clear resources properly
-
-```kotlin
-class SquadActivity : AppCompatActivity() {
-    override fun onLowMemory() {
-        super.onLowMemory()
-        squadSDK.clearWebViewCache()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        squadSDK.cleanup()
+class SquadJSInterface(private val context: Context) {
+    @JavascriptInterface
+    fun postMessage(message: String) {
+        // Handle message
     }
 }
+
+webView.addJavascriptInterface(SquadJSInterface(context), "SquadAndroid")
 ```
 
-### Voice Calling Issues
-
-1. **Microphone Permission Denied**
+2. Debug bridge messages:
 
 ```kotlin
-SquadError.PermissionDenied: RECORD_AUDIO permission not granted
+webView.evaluateJavascript(
+    "(function() { return window.SquadBridge != null; })();"
+) { result ->
+    Log.d("SquadSDK", "Bridge available: $result")
+}
 ```
 
-**Solution:**
+## Audio Issues
+
+### AudioManager
+
+#### Issue: Audio Configuration
+
+```
+Error: Failed to initialize audio system
+```
+
+**Solutions:**
+
+1. Configure audio settings:
+
+```kotlin
+val audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
+audioManager.mode = AudioManager.MODE_IN_COMMUNICATION
+audioManager.isSpeakerphoneOn = false
+```
+
+2. Handle audio focus:
+
+```kotlin
+private val audioFocusRequest = AudioFocusRequest.Builder(
+    AudioManager.AUDIOFOCUS_GAIN
+).run {
+    setAudioAttributes(AudioAttributes.Builder().run {
+        setUsage(AudioAttributes.USAGE_VOICE_COMMUNICATION)
+        setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+        build()
+    })
+    setAcceptsDelayedFocusGain(true)
+    setOnAudioFocusChangeListener { focusChange ->
+        // Handle focus change
+    }
+    build()
+}
+```
+
+### Permissions
+
+#### Issue: Microphone Access
+
+```
+Error: Missing RECORD_AUDIO permission
+```
+
+**Solutions:**
+
+1. Check permissions:
+
+```kotlin
+private fun checkAudioPermission() {
+    if (ContextCompat.checkSelfPermission(
+        context,
+        Manifest.permission.RECORD_AUDIO
+    ) != PackageManager.PERMISSION_GRANTED) {
+        requestAudioPermission()
+    }
+}
+
+private fun requestAudioPermission() {
+    ActivityCompat.requestPermissions(
+        activity,
+        arrayOf(Manifest.permission.RECORD_AUDIO),
+        PERMISSION_REQUEST_CODE
+    )
+}
+```
+
+## Memory Management
+
+### Memory Leaks
+
+#### Issue: Memory Leaks
+
+```
+Error: Memory leak detected
+```
+
+**Solutions:**
+
+1. Handle activity lifecycle:
+
+```kotlin
+override fun onDestroy() {
+    webView.clearCache(true)
+    webView.clearHistory()
+    webView.destroy()
+    super.onDestroy()
+}
+```
+
+2. Monitor memory:
+
+```kotlin
+class MemoryMonitor {
+    fun logMemoryInfo(context: Context) {
+        val runtime = Runtime.getRuntime()
+        val usedMemInMB = (runtime.totalMemory() - runtime.freeMemory()) / 1048576L
+        Log.d("MemoryMonitor", "Used memory: $usedMemInMB MB")
+    }
+}
+```
+
+## Debug Tools
+
+### Logging
+
+1. Enable SDK logging:
+
+```kotlin
+SquadSDK.setLogLevel(LogLevel.DEBUG)
+```
+
+2. Add debug interceptor:
+
+```kotlin
+class DebugInterceptor : Interceptor {
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val request = chain.request()
+        Log.d("SquadSDK", "Request: ${request.url}")
+        return chain.proceed(request)
+    }
+}
+```
+
+### Performance Monitoring
+
+Monitor WebView performance:
+
+```kotlin
+webView.setWebViewClient(object : WebViewClient() {
+    override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
+        startTime = System.currentTimeMillis()
+    }
+
+    override fun onPageFinished(view: WebView, url: String) {
+        val loadTime = System.currentTimeMillis() - startTime
+        Log.d("SquadSDK", "Page load time: $loadTime ms")
+    }
+})
+```
+
+## Configuration Changes
+
+Handle configuration changes properly:
+
+```kotlin
+override fun onConfigurationChanged(newConfig: Configuration) {
+    super.onConfigurationChanged(newConfig)
+    // Handle configuration change
+    webView.requestLayout()
+}
+```
+
+## Related Resources
+
+- [General Troubleshooting Guide](../troubleshooting.md)
+- [Android Configuration Guide](configuration.md)
+- [Android WebView Management](webview.md)
+- [ProGuard Configuration](proguard.md)
+
+## Support
+
+When contacting support, provide:
+
+- Android Studio version
+- Android OS version
+- Device model
+- SDK version
+- Error logs
+- Steps to reproduce
+- Sample project (if possible)
+- ProGuard mapping file (if applicable)

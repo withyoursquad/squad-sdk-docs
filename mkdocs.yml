@@ -5,11 +5,23 @@ nav:
   - Home: index.md
   - iOS:
       - Overview: ios/getting-started.md
+      - Installation: ios/installation.md
+      - Configuration: ios/configuration.md
       - SDK Init: ios/sdk-init.md
       - User Auth: ios/user-auth.md
+      - WebView: ios/webview.md
       - WebView Events: ios/webview-events.md
+      - Optimization: ios/optimization.md
       - Troubleshooting: ios/troubleshooting.md
   - Android:
       - Overview: android/getting-started.md
+      - Installation: android/installation.md
+      - Configuration: android/configuration.md
+      - SDK Init: android/sdk-init.md
+      - User Auth: android/user-auth.md
+      - WebView: android/webview.md
+      - WebView Events: android/webview-events.md
+      - ProGuard: android/proguard.md
+      - Troubleshooting: android/troubleshooting.md
   - React Native:
       - Overview: react-native/getting-started.md

@@ -6,10 +6,9 @@ Welcome to the documentation for the Squad SDK! This comprehensive guide covers 
 
 - [Squad SDK Overview](overview.md)
 - [Key Concepts](concepts/index.md)
-- Platform Quick Start
-  - [iOS Quick Start](ios/getting-started.md)
-  - [Android Quick Start](android/getting-started.md)
-  - [React Native Quick Start](react-native/getting-started.md) (coming soon)
+- [iOS Quick Start](ios/getting-started.md)
+- [Android Quick Start](android/getting-started.md)
+- [React Native Quick Start](react-native/getting-started.md) (coming soon)
 
 ## Core Implementation
 
@@ -26,7 +25,7 @@ Welcome to the documentation for the Squad SDK! This comprehensive guide covers 
 
 - [Installation & Setup](ios/installation.md)
 - [Configuration Guide](ios/configuration.md)
-- [WebView Management](ios/webview.md)
+- [WebView Integration](ios/webview.md)
 
 ### Android Implementation
 
