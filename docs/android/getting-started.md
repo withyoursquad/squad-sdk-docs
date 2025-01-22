@@ -149,31 +149,6 @@ Add to AndroidManifest.xml:
 - [WebView Events](webview-events.md) - Event handling guide
 - [ProGuard Configuration](proguard.md) - ProGuard setup
 
-## Best Practices
-
-1. **Initialization**
-
-   - Initialize in Application class
-   - Handle configuration changes
-   - Manage lifecycle properly
-
-2. **Security**
-
-   - Implement proper permissions
-   - Configure ProGuard rules
-   - Set up certificate pinning
-
-3. **Performance**
-
-   - Memory management
-   - Resource optimization
-   - Background handling
-
-4. **User Experience**
-   - Loading states
-   - Error handling
-   - Offline support
-
 ## Troubleshooting
 
 For common issues and solutions, see our [Troubleshooting Guide](troubleshooting.md).

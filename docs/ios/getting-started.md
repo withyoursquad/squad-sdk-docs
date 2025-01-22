@@ -121,31 +121,6 @@ For comprehensive WebView management, see our [WebView Management Guide](webview
 - [User Authentication](user-auth.md) - Authentication implementation
 - [WebView Events](webview-events.md) - Event handling guide
 
-## Best Practices
-
-1. **Initialization**
-
-   - Initialize SDK early in app lifecycle
-   - Configure error handling
-   - Set appropriate environment
-
-2. **Security**
-
-   - Secure credential storage
-   - Proper permission handling
-   - Certificate pinning setup
-
-3. **Performance**
-
-   - Memory management
-   - Resource optimization
-   - Background state handling
-
-4. **User Experience**
-   - Loading states
-   - Error handling
-   - Offline support
-
 ## Troubleshooting
 
 For common issues and solutions, see our [Troubleshooting Guide](troubleshooting.md).
