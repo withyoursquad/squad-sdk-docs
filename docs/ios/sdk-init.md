@@ -10,7 +10,7 @@ The Squad SDK initialization process consists of three key steps:
 
 ### Obtaining Credentials
 
-1. Login to your developer account at [https://developer.withyoursquad.com](https://developer.withyoursquad.com)
+1. Login to your developer account at [https://developer.squadforsports.com](https://developer.squadforsports.com)
 2. Navigate to Organization Settings
 3. Copy your Organization ID and API Key
 
@@ -171,8 +171,8 @@ enum SquadSDKError: Error {
 
 ## Support
 
-- Documentation: [Squad Developer Docs](https://docs.withyoursquad.com)
-- Support Email: support@withyoursquad.com
+- Documentation: [Squad Developer Docs](https://docs.squadforsports.com)
+- Support Email: support@squadforsports.com
 
 ---
 

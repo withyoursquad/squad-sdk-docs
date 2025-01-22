@@ -1,55 +1,64 @@
 # Getting Started with Squad SDK for iOS
 
-This guide will walk you through the process of integrating the Squad SDK into your iOS app, allowing you to quickly add social features and voice calling capabilities to your app.
+This guide will help you integrate the Squad SDK into your iOS app, enabling social features and voice calling capabilities.
 
 ## Prerequisites
 
-Before you begin, ensure that you have the following:
+Before you begin, ensure you have:
 
-- A Squad developer account
+- A Squad developer account and credentials
 - Xcode 13.0 or later
 - iOS 13.0 or later
 - Swift 5.3 or later
 
-## Installation
+## Installation Methods
 
-You can install the Squad SDK using either Swift Package Manager or CocoaPods.
+### Swift Package Manager (Recommended)
 
-### Swift Package Manager
+1. In Xcode, select **File** > **Add Package Dependencies...**
+2. Enter the repository URL:
 
-1. In Xcode, select "File" > "Swift Packages" > "Add Package Dependency"
-2. Enter the following URL: `https://github.com/withyoursquad/squad-sports-ios.git`
-3. Choose the latest version or a specific version of the SDK
-4. Click "Next" and select the target for your app
-5. Click "Finish"
+```
+https://github.com/withyoursquad/squad-sports-ios.git
+```
+
+3. Select version settings:
+   - Rules: Version - Up to Next Major
+   - Version: 1.0.0 or later
 
 ### CocoaPods
 
-1. Add the following line to your Podfile:
+1. Add to your Podfile:
 
 ```ruby
 pod 'SquadSDK', '~> 1.0.0'
 ```
 
-2. Run `pod install` to install the SDK.
+2. Install the dependency:
 
-## Initialization
+```bash
+pod install
+```
 
-To start using the Squad SDK, you need to initialize it with your organization credentials.
+For detailed installation options and troubleshooting, see our [Installation Guide](installation.md).
 
-1. Import the Squad SDK in your app delegate:
+## Quick Start Guide
+
+### 1. SDK Initialization
+
+Import and initialize the SDK:
 
 ```swift
 import SquadSDK
-```
 
-2. Initialize the SDK with your organization ID and API key:
-
-```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    let squadSDK = SquadSDK(organizationId: "YOUR_ORGANIZATION_ID", apiKey: "YOUR_API_KEY")
     do {
-        try squadSDK.initialize()
+        let config = SquadConfig(
+            organizationId: "YOUR_ORG_ID",
+            apiKey: "YOUR_API_KEY",
+            environment: .production
+        )
+        try SquadSDK.initialize(with: config)
         print("Squad SDK initialized successfully")
     } catch {
         print("Failed to initialize Squad SDK: \(error)")
@@ -58,35 +67,97 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 
-Replace `"YOUR_ORGANIZATION_ID"` and `"YOUR_API_KEY"` with your actual credentials.
+For advanced configuration options, see our [Configuration Guide](configuration.md).
 
-## User Authentication
+### 2. User Authentication
 
-To access Squad features, users need to be authenticated. You can authenticate users using either email or access tokens.
-
-For detailed information on user authentication, refer to the [User Authentication Guide](user-auth.md).
-
-## Presenting the Squad UI
-
-Once the SDK is initialized and the user is authenticated, you can present the Squad UI by calling the `openSquadWebView` method:
+Authenticate users using email or token:
 
 ```swift
-do {
-    try squadSDK.openSquadWebView()
-    print("Squad WebView presented successfully")
-} catch {
-    print("Failed to present Squad WebView: \(error)")
+try squadSDK.authenticateUser(
+    identifier: "user@example.com",
+    authType: .email
+) { result in
+    switch result {
+    case .success(let user):
+        print("User authenticated: \(user.id)")
+    case .failure(let error):
+        print("Authentication failed: \(error)")
+    }
 }
 ```
 
-The Squad UI will be presented modally, providing access to social features, voice calling, and more.
+Learn more in our [User Authentication Guide](user-auth.md).
 
-## Next Steps
+### 3. WebView Integration
 
-- Initialize the [Squad SDK](sdk-init.md)
-- Learn more about [User Authentication](user-auth.md)
-- Handle [WebView Events](webview-events.md)
-- Explore [Squad Line](../squad-line.md) capabilities
-- [Troubleshooting](troubleshooting.md)
+Present the Squad experience:
 
-If you have any questions or need further assistance, please visit our [Support Center](https://support.withyoursquad.com) or contact us at support@withyoursquad.com.
+```swift
+class ViewController: UIViewController {
+    func showSquadExperience() {
+        do {
+            let webView = try squadSDK.presentWebView(
+                configuration: WebViewConfig(
+                    features: [.voiceCalls, .freestyles, .polls]
+                )
+            )
+            view.addSubview(webView)
+            setupWebViewConstraints(webView)
+        } catch {
+            print("Failed to present Squad WebView: \(error)")
+        }
+    }
+}
+```
+
+For comprehensive WebView management, see our [WebView Management Guide](webview.md).
+
+## Integration Guides
+
+- [Installation & Setup](installation.md) - Detailed installation steps
+- [Configuration Guide](configuration.md) - Advanced SDK configuration
+- [WebView Management](webview.md) - WebView integration and management
+- [User Authentication](user-auth.md) - Authentication implementation
+- [WebView Events](webview-events.md) - Event handling guide
+
+## Best Practices
+
+1. **Initialization**
+
+   - Initialize SDK early in app lifecycle
+   - Configure error handling
+   - Set appropriate environment
+
+2. **Security**
+
+   - Secure credential storage
+   - Proper permission handling
+   - Certificate pinning setup
+
+3. **Performance**
+
+   - Memory management
+   - Resource optimization
+   - Background state handling
+
+4. **User Experience**
+   - Loading states
+   - Error handling
+   - Offline support
+
+## Troubleshooting
+
+For common issues and solutions, see our [Troubleshooting Guide](troubleshooting.md).
+
+## Additional Resources
+
+- [Sample Projects](https://github.com/withyoursquad/ios-samples)
+
+## Support
+
+Need help? Our support team is ready to assist:
+
+- Support Center: [https://support.squadforsports.com](https://support.squadforsports.com)
+- Email: support@squadforsports.com
+- Documentation: [https://docs.squadforsports.com](https://docs.squadforsports.com)

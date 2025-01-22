@@ -1,30 +1,56 @@
 # Squad SDK Documentation
 
-Welcome to the documentation for the Squad SDK!
+Welcome to the documentation for the Squad SDK! This comprehensive guide covers everything you need to integrate Squad's social features, voice calling, and interactive elements into your mobile applications.
 
-The Squad SDK enables you to integrate Squad's social features, voice calling, freestyles, polls, and more into your mobile apps through a seamless WebView integration. This site covers key concepts, quick start guides, detailed API references, and more to help you make the most of the Squad SDK.
-
-## Supported Platforms
-
-- [iOS](ios/getting-started.md)
-- [Android](android/getting-started.md) (coming soon)
-- [React Native](react-native/getting-started.md) (coming soon)
-
-## Key Concepts
+## Getting Started
 
 - [Squad SDK Overview](overview.md)
+- [Key Concepts](concepts/index.md)
+- Platform Quick Start
+  - [iOS Quick Start](ios/getting-started.md)
+  - [Android Quick Start](android/getting-started.md)
+  - [React Native Quick Start](react-native/getting-started.md) (coming soon)
+
+## Core Implementation
+
+### SDK Integration
+
 - [SDK Initialization](sdk-init.md)
-- [User Initialization](user-init.md)
+- [User Authentication](user-init.md)
 - [WebView Integration](webview-integration.md)
 - [Squad Experience](squad-experience.md)
 
-## Guides & Tutorials
+## Platform-Specific Guides
 
-- [Squad Line](ios/squad-line.md)
-- [Troubleshooting Common Issues](ios/troubleshooting.md)
+### iOS Implementation
+
+- [Installation & Setup](ios/installation.md)
+- [Configuration Guide](ios/configuration.md)
+- [WebView Management](ios/webview.md)
+
+### Android Implementation
+
+- [Installation & Setup](android/installation.md)
+- [Configuration Guide](android/configuration.md)
+- [WebView Management](android/webview.md)
+
+## Troubleshooting & Support
+
+- [Common Issues](troubleshooting/common-issues.md)
+- [Error Reference](troubleshooting/error-reference.md)
+- [Debugging Guide](troubleshooting/debugging.md)
+- [Support Resources](troubleshooting/support.md)
 
 ## Additional Resources
 
-- [GitHub Repo for iOS](https://github.com/withyoursquad/squad-sports-ios)
-- [Release Notes for iOS](https://github.com/withyoursquad/squad-sports-ios/tree/main/changelogs)
-- [Support Center](https://support.withyoursquad.com)
+- [Sample Projects](resources/samples.md)
+- [Implementation Examples](resources/examples.md)
+- [FAQ](resources/faq.md)
+- [Support Contact](resources/support.md)
+
+## Release Information
+
+- [iOS SDK Releases](https://github.com/withyoursquad/squad-sports-ios/releases)
+- [Android SDK Releases](https://github.com/withyoursquad/squad-sports-android/releases)
+- [Release Notes](changelogs/index.md)
+- [Known Issues](changelogs/known-issues.md)

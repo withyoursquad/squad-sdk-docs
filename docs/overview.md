@@ -1,41 +1,102 @@
 # Squad SDK Overview
 
-The Squad SDK is a powerful tool that allows developers to integrate Squad's engaging social features and voice calling capabilities into their mobile applications. By leveraging the SDK, apps can provide users with a seamless and interactive social experience, including freestyles, polls, squad and friend management, and real-time voice communication.
+The Squad SDK enables developers to integrate Squad's social features and voice calling capabilities into mobile applications. By leveraging the SDK, apps can provide users with a seamless and interactive social experience, including freestyles, polls, squad management, and real-time voice communication.
 
 ## Key Features
 
-- Easy initialization with just an organization ID and API key
-- Smooth user authentication using email or access tokens
-- Seamless WebView integration to embed the Squad experience
-- Access to Squad's social features:
+- Easy initialization with organization ID and API key
+- Flexible authentication using email or access tokens
+- Seamless WebView integration
+- Comprehensive social features:
   - Freestyles for creative expression
-  - Polls for gathering opinions
-  - Squad and friend management for building communities
-- Real-time voice calling and voice messaging
+  - Interactive polls
+  - Squad and friend management
+  - Real-time voice calling with custom emojis
+  - Voice messaging
 - Cross-platform support for iOS, Android, and React Native
+- Robust security and performance optimizations
 
 ## Getting Started
 
-To start using the Squad SDK in your app, follow these steps:
+To integrate the Squad SDK into your app:
 
-1. Sign up for a Squad developer account and obtain your organization ID and API key
-2. Integrate the SDK into your app by following the platform-specific guides:
+1. Sign up for a Squad developer account to obtain credentials
+2. Follow the platform-specific installation guides:
    - [iOS Integration Guide](ios/getting-started.md)
    - [Android Integration Guide](android/getting-started.md)
-   - [React Native Integration Guide](react-native/getting-started.md)
-3. Initialize the SDK with your organization credentials
-4. Authenticate users using email or access tokens
-5. Present the Squad WebView to display the social features
+   - [React Native Integration Guide](react-native/getting-started.md) (coming soon)
+3. Configure the SDK using our detailed guides
+4. Implement user authentication
+5. Integrate the Squad WebView experience
 
-## Documentation Overview
+## Core Documentation
 
-This documentation site provides comprehensive guides, tutorials, and API references to help you make the most of the Squad SDK. Here's an overview of the key sections:
+### Setup and Configuration
 
-- [SDK Initialization](sdk-init.md): Learn how to set up the SDK with your organization credentials
-- [User Initialization](user-init.md): Understand the process of authenticating users to access Squad features
-- [WebView Integration](webview-integration.md): Discover how to embed the Squad experience into your app using WebViews
-- [Squad Experience](squad-experience.md): Explore the various social features provided by Squad, including freestyles, polls, squad and friend management, voice calling, and voice messaging
-- [Squad Line](squad-line.md): Explore real-time voice calling features including custom emojis and reactions
-- [Platform Guides](ios/getting-started.md): Find detailed integration guides, tutorials, and troubleshooting tips for each supported platform (iOS, Android, React Native)
+- [Installation & Setup](installation.md)
+- [SDK Initialization](sdk-init.md)
+- [User Authentication](user-auth.md)
 
-Whether you're a seasoned developer or just getting started with the Squad SDK, these resources will provide you with the knowledge and tools you need to create engaging social experiences within your app.
+### WebView Integration
+
+- [WebView Management](webview.md)
+
+### Platform-Specific Guides
+
+#### iOS
+
+- [iOS Installation](ios/installation.md)
+- [iOS Configuration](ios/configuration.md)
+- [iOS WebView Management](ios/webview.md)
+- [Build Optimization](ios/optimization.md)
+
+#### Android
+
+- [Android Installation](android/installation.md)
+- [Android Configuration](android/configuration.md)
+- [Android WebView Management](android/webview.md)
+- [ProGuard Configuration](android/proguard.md)
+
+### Implementation Resources
+
+- [Sample Projects](resources/samples.md)
+- [Integration Examples](resources/examples.md)
+
+## Best Practices
+
+1. **Security**
+
+   - Implement proper authentication
+   - Configure content security policies
+   - Enable certificate pinning
+   - Secure data storage
+
+2. **Performance**
+
+   - Optimize memory usage
+   - Efficient resource management
+   - Background state handling
+   - Cache optimization
+
+3. **User Experience**
+
+   - Handle offline states
+   - Implement loading indicators
+   - Manage error states
+   - Maintain state consistency
+
+4. **Integration**
+   - Follow platform guidelines
+   - Implement proper lifecycle management
+   - Handle configuration changes
+   - Monitor analytics and errors
+
+## Support and Resources
+
+- [Documentation Home](index.md)
+- [Troubleshooting Guide](troubleshooting.md)
+- [Sample Projects](https://github.com/withyoursquad/samples)
+- Support: support@squadforsports.com
+- Documentation: https://docs.squadforsports.com
+
+Whether you're building a new integration or enhancing an existing one, our comprehensive documentation will guide you through creating engaging social experiences with the Squad SDK.

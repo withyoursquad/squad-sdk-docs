@@ -41,7 +41,7 @@ The documentation site is deployed automatically when changes are merged to the 
 
 If you have any questions about the documentation or the Squad SDK, please reach out:
 
-- Email: support@withyoursquad.com
-- Support Center: https://support.withyoursquad.com
+- Email: support@squadforsports.com
+- Support Center: https://support.squadforsports.com
 
 We look forward to seeing what you build with the Squad SDK!

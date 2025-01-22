@@ -6,7 +6,7 @@ Before you can start using the Squad SDK in your app, you need to initialize it 
 
 To get your organization ID and API key:
 
-1. Sign up for a Squad developer account at [https://developer.withyoursquad.com](https://developer.withyoursquad.com)
+1. Sign up for a Squad developer account at [https://developer.squadforsports.com](https://developer.squadforsports.com)
 2. Once logged in, navigate to the "Organization Settings" page
 3. Copy your "Organization ID" and "API Key" from the settings page
 

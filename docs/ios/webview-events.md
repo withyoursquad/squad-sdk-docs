@@ -95,4 +95,4 @@ func squadSDKWebViewDidDismiss(_ squadSDK: SquadSDK) {
 - Explore [Squad Line](squad-line.md) capabilities
 - [Troubleshooting](troubleshooting.md)
 
-If you have any questions or need further assistance, please visit our [Support Center](https://support.withyoursquad.com) or contact us at support@withyoursquad.com.
+If you have any questions or need further assistance, please visit our [Support Center](https://support.squadforsports.com) or contact us at support@squadforsports.com.
