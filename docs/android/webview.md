@@ -49,7 +49,7 @@ class SquadWebViewClient : WebViewClient() {
         request: WebResourceRequest
     ): Boolean {
         // Handle URL loading
-        return if (request.url.host?.endsWith("withsquad.com") == true) {
+        return if (request.url.host?.endsWith("squadforsports.com") == true) {
             false // Let WebView handle Squad URLs
         } else {
             handleExternalUrl(request.url)
@@ -193,10 +193,10 @@ class SessionManager(private val context: Context) {
 ```kotlin
 class SecurityConfig {
     private val cspRules = """
-        default-src 'self' https://*.withsquad.com;
-        script-src 'self' 'unsafe-inline' https://*.withsquad.com;
-        style-src 'self' 'unsafe-inline' https://*.withsquad.com;
-        img-src 'self' data: https://*.withsquad.com;
+        default-src 'self' https://*.squadforsports.com;
+        script-src 'self' 'unsafe-inline' https://*.squadforsports.com;
+        style-src 'self' 'unsafe-inline' https://*.squadforsports.com;
+        img-src 'self' data: https://*.squadforsports.com;
     """.trimIndent()
 
     fun injectCSP(webView: WebView) {

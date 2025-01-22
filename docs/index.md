@@ -16,7 +16,7 @@ Welcome to the documentation for the Squad SDK! This comprehensive guide covers 
 
 - [SDK Initialization](sdk-init.md)
 - [User Authentication](user-init.md)
-- [WebView Integration](webview-integration.md)
+- [WebView Integration](webview.md)
 - [Squad Experience](squad-experience.md)
 
 ## Platform-Specific Guides
@@ -35,15 +35,10 @@ Welcome to the documentation for the Squad SDK! This comprehensive guide covers 
 
 ## Troubleshooting & Support
 
-- [Common Issues](troubleshooting/common-issues.md)
-- [Error Reference](troubleshooting/error-reference.md)
-- [Debugging Guide](troubleshooting/debugging.md)
-- [Support Resources](troubleshooting/support.md)
+- [General Troubleshooting](troubleshooting.md)
 
 ## Additional Resources
 
-- [Sample Projects](resources/samples.md)
-- [Implementation Examples](resources/examples.md)
 - [FAQ](resources/faq.md)
 - [Support Contact](resources/support.md)
 
@@ -51,5 +46,3 @@ Welcome to the documentation for the Squad SDK! This comprehensive guide covers 
 
 - [iOS SDK Releases](https://github.com/withyoursquad/squad-sports-ios/releases)
 - [Android SDK Releases](https://github.com/withyoursquad/squad-sports-android/releases)
-- [Release Notes](changelogs/index.md)
-- [Known Issues](changelogs/known-issues.md)

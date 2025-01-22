@@ -79,7 +79,7 @@ Add App Transport Security settings to `Info.plist`:
     <false/>
     <key>NSExceptionDomains</key>
     <dict>
-        <key>withsquad.com</key>
+        <key>squadforsports.com</key>
         <dict>
             <key>NSExceptionAllowsInsecureHTTPLoads</key>
             <false/>

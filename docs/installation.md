@@ -26,7 +26,7 @@ Before starting the installation:
 
 1. **Developer Account Setup**
 
-   - Create a Squad developer account at [developer.withsquad.com](https://developer.squadforsports.com)
+   - Create a Squad developer account at [developer.squadforsports.com](https://developer.squadforsports.com)
    - Generate your organization ID and API key
    - Note your credentials for SDK initialization
 

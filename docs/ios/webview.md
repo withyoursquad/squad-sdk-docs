@@ -183,10 +183,10 @@ extension SquadViewController {
             source: """
             const meta = document.createElement('meta');
             meta.httpEquiv = 'Content-Security-Policy';
-            meta.content = "default-src 'self' https://*.withsquad.com; \
-                          script-src 'self' 'unsafe-inline' https://*.withsquad.com; \
-                          style-src 'self' 'unsafe-inline' https://*.withsquad.com; \
-                          img-src 'self' data: https://*.withsquad.com;";
+            meta.content = "default-src 'self' https://*.squadforsports.com; \
+                          script-src 'self' 'unsafe-inline' https://*.squadforsports.com; \
+                          style-src 'self' 'unsafe-inline' https://*.squadforsports.com; \
+                          img-src 'self' data: https://*.squadforsports.com;";
             document.head.appendChild(meta);
             """,
             injectionTime: .atDocumentStart,

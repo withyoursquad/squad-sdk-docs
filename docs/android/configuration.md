@@ -49,8 +49,8 @@ SquadSDK.Builder(context)
 
 ```kotlin
 val certificateConfig = CertificatePinningConfig.Builder()
-    .addCertificate("api.withsquad.com", "sha256/XXXX")
-    .addBackupCertificate("api.withsquad.com", "sha256/YYYY")
+    .addCertificate("api.squadforsports.com", "sha256/XXXX")
+    .addBackupCertificate("api.squadforsports.com", "sha256/YYYY")
     .setIncludeDefaultCertificates(true)
     .build()
 

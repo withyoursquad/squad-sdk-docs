@@ -71,7 +71,7 @@ Add network security configuration to `res/xml/network_security_config.xml`:
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config cleartextTrafficPermitted="false">
-        <domain includeSubdomains="true">withsquad.com</domain>
+        <domain includeSubdomains="true">squadforsports.com</domain>
         <pin-set>
             <!-- Squad API certificate pins -->
             <pin digest="SHA-256">base64-encoded-pin-here</pin>

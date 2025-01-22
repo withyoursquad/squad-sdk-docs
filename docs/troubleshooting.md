@@ -273,8 +273,8 @@ SquadSDK.enableNetworkLogging(true)
 
 2. **Support Channels**
 
-   - Email: support@withsquad.com
-   - Support portal: support.withsquad.com
+   - Email: support@squadforsports.com
+   - Support portal: support.squadforsports.com
    - GitHub issues
 
 3. **Debug Information**

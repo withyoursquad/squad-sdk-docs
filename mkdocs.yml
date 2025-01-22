@@ -3,6 +3,8 @@ theme:
   name: material
 nav:
   - Home: index.md
+  - Concepts:
+      - Overview: concepts/index.md
   - iOS:
       - Overview: ios/getting-started.md
       - Installation: ios/installation.md
@@ -25,3 +27,6 @@ nav:
       - Troubleshooting: android/troubleshooting.md
   - React Native:
       - Overview: react-native/getting-started.md
+  - Resources:
+      - FAQ: resources/faq.md
+      - Support: resources/support.md
