@@ -1,0 +1,2000 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../proguard/">
+      
+      
+        <link rel="next" href="../../react-native/getting-started/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>Troubleshooting - Squad SDK Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#android-troubleshooting-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Squad SDK Documentation" class="md-header__button md-logo" aria-label="Squad SDK Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Squad SDK Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Troubleshooting
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Squad SDK Documentation" class="md-nav__button md-logo" aria-label="Squad SDK Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Squad SDK Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    iOS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            iOS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ios/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ios/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ios/configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ios/sdk-init/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK Init
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ios/user-auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Auth
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ios/webview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WebView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ios/webview-events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WebView Events
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ios/optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ios/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Android
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sdk-init/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK Init
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Auth
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WebView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webview-events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WebView Events
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proguard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ProGuard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gradle-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gradle Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gradle Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-dependency-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Dependency Resolution
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version Conflicts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Version Conflicts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-dependency-version-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Dependency Version Conflicts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proguardr8" class="md-nav__link">
+    <span class="md-ellipsis">
+      ProGuard/R8
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ProGuard/R8">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-proguard-optimization-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: ProGuard Optimization Failures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-abi-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: ABI Compatibility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#webview-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      WebView Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WebView Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webview-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      WebView Loading
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WebView Loading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-content-loading-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Content Loading Failures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      JavaScript Bridge
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JavaScript Bridge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-bridge-communication-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Bridge Communication Failures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audio-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Audio Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Audio Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#audiomanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      AudioManager
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AudioManager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-audio-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Audio Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-microphone-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Microphone Access
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memory Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#memory-leaks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Leaks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memory Leaks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-memory-leaks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Memory Leaks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Debug Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Changes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    React Native
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            React Native
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../react-native/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gradle-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gradle Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gradle Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-dependency-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Dependency Resolution
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version Conflicts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Version Conflicts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-dependency-version-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Dependency Version Conflicts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proguardr8" class="md-nav__link">
+    <span class="md-ellipsis">
+      ProGuard/R8
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ProGuard/R8">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-proguard-optimization-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: ProGuard Optimization Failures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-abi-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: ABI Compatibility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#webview-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      WebView Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WebView Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webview-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      WebView Loading
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WebView Loading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-content-loading-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Content Loading Failures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      JavaScript Bridge
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JavaScript Bridge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-bridge-communication-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Bridge Communication Failures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audio-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Audio Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Audio Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#audiomanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      AudioManager
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AudioManager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-audio-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Audio Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-microphone-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Microphone Access
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memory Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#memory-leaks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Leaks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memory Leaks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-memory-leaks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Memory Leaks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Debug Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Changes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="android-troubleshooting-guide">Android Troubleshooting Guide</h1>
+<p>This guide addresses Android-specific issues and solutions when integrating the Squad SDK.</p>
+<h2 id="installation-issues">Installation Issues</h2>
+<h3 id="gradle-integration">Gradle Integration</h3>
+<h4 id="issue-dependency-resolution">Issue: Dependency Resolution</h4>
+<pre><code>Error: Failed to resolve: com.withsquad.sdk:squadline:1.0.0
+</code></pre>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>Check repositories in settings.gradle:</li>
+</ol>
+<pre><code class="language-gradle">dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
+</code></pre>
+<ol>
+<li>Force dependency refresh:</li>
+</ol>
+<pre><code class="language-bash">./gradlew clean build --refresh-dependencies
+</code></pre>
+<h3 id="version-conflicts">Version Conflicts</h3>
+<h4 id="issue-dependency-version-conflicts">Issue: Dependency Version Conflicts</h4>
+<pre><code>Error: Duplicate class found
+</code></pre>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>Add resolution strategy:</li>
+</ol>
+<pre><code class="language-gradle">configurations.all {
+    resolutionStrategy {
+        force 'com.withsquad.sdk:squadline:1.0.0'
+    }
+}
+</code></pre>
+<ol>
+<li>Check dependency tree:</li>
+</ol>
+<pre><code class="language-bash">./gradlew app:dependencies
+</code></pre>
+<h2 id="build-issues">Build Issues</h2>
+<h3 id="proguardr8">ProGuard/R8</h3>
+<h4 id="issue-proguard-optimization-failures">Issue: ProGuard Optimization Failures</h4>
+<pre><code>Error: Class not found after ProGuard optimization
+</code></pre>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>Add ProGuard rules:</li>
+</ol>
+<pre><code class="language-proguard">-keep class com.withsquad.sdk.** { *; }
+-keepclassmembers class com.withsquad.sdk.** { *; }
+</code></pre>
+<ol>
+<li>Check mapping file:</li>
+</ol>
+<pre><code class="language-bash">build/outputs/mapping/release/mapping.txt
+</code></pre>
+<h3 id="architecture-issues">Architecture Issues</h3>
+<h4 id="issue-abi-compatibility">Issue: ABI Compatibility</h4>
+<pre><code>Error: Unable to load native library
+</code></pre>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>Configure ABI filters:</li>
+</ol>
+<pre><code class="language-gradle">android {
+    defaultConfig {
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+        }
+    }
+}
+</code></pre>
+<h2 id="webview-issues">WebView Issues</h2>
+<h3 id="webview-loading">WebView Loading</h3>
+<h4 id="issue-content-loading-failures">Issue: Content Loading Failures</h4>
+<pre><code>Error: WebView failed to load content
+</code></pre>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>Configure WebView properly:</li>
+</ol>
+<pre><code class="language-kotlin">webView.settings.apply {
+    javaScriptEnabled = true
+    domStorageEnabled = true
+    mediaPlaybackRequiresUserGesture = false
+}
+
+webView.webViewClient = object : WebViewClient() {
+    override fun onReceivedError(
+        view: WebView?,
+        request: WebResourceRequest?,
+        error: WebResourceError?
+    ) {
+        // Handle error
+    }
+}
+</code></pre>
+<ol>
+<li>Handle SSL errors:</li>
+</ol>
+<pre><code class="language-kotlin">webView.webViewClient = object : WebViewClient() {
+    override fun onReceivedSslError(
+        view: WebView?,
+        handler: SslErrorHandler?,
+        error: SslError?
+    ) {
+        if (BuildConfig.DEBUG) {
+            handler?.proceed()
+        } else {
+            handler?.cancel()
+        }
+    }
+}
+</code></pre>
+<h3 id="javascript-bridge">JavaScript Bridge</h3>
+<h4 id="issue-bridge-communication-failures">Issue: Bridge Communication Failures</h4>
+<pre><code>Error: JavaScript interface not working
+</code></pre>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>Verify bridge setup:</li>
+</ol>
+<pre><code class="language-kotlin">class SquadJSInterface(private val context: Context) {
+    @JavascriptInterface
+    fun postMessage(message: String) {
+        // Handle message
+    }
+}
+
+webView.addJavascriptInterface(SquadJSInterface(context), &quot;SquadAndroid&quot;)
+</code></pre>
+<ol>
+<li>Debug bridge messages:</li>
+</ol>
+<pre><code class="language-kotlin">webView.evaluateJavascript(
+    &quot;(function() { return window.SquadBridge != null; })();&quot;
+) { result -&gt;
+    Log.d(&quot;SquadSDK&quot;, &quot;Bridge available: $result&quot;)
+}
+</code></pre>
+<h2 id="audio-issues">Audio Issues</h2>
+<h3 id="audiomanager">AudioManager</h3>
+<h4 id="issue-audio-configuration">Issue: Audio Configuration</h4>
+<pre><code>Error: Failed to initialize audio system
+</code></pre>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>Configure audio settings:</li>
+</ol>
+<pre><code class="language-kotlin">val audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
+audioManager.mode = AudioManager.MODE_IN_COMMUNICATION
+audioManager.isSpeakerphoneOn = false
+</code></pre>
+<ol>
+<li>Handle audio focus:</li>
+</ol>
+<pre><code class="language-kotlin">private val audioFocusRequest = AudioFocusRequest.Builder(
+    AudioManager.AUDIOFOCUS_GAIN
+).run {
+    setAudioAttributes(AudioAttributes.Builder().run {
+        setUsage(AudioAttributes.USAGE_VOICE_COMMUNICATION)
+        setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+        build()
+    })
+    setAcceptsDelayedFocusGain(true)
+    setOnAudioFocusChangeListener { focusChange -&gt;
+        // Handle focus change
+    }
+    build()
+}
+</code></pre>
+<h3 id="permissions">Permissions</h3>
+<h4 id="issue-microphone-access">Issue: Microphone Access</h4>
+<pre><code>Error: Missing RECORD_AUDIO permission
+</code></pre>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>Check permissions:</li>
+</ol>
+<pre><code class="language-kotlin">private fun checkAudioPermission() {
+    if (ContextCompat.checkSelfPermission(
+        context,
+        Manifest.permission.RECORD_AUDIO
+    ) != PackageManager.PERMISSION_GRANTED) {
+        requestAudioPermission()
+    }
+}
+
+private fun requestAudioPermission() {
+    ActivityCompat.requestPermissions(
+        activity,
+        arrayOf(Manifest.permission.RECORD_AUDIO),
+        PERMISSION_REQUEST_CODE
+    )
+}
+</code></pre>
+<h2 id="memory-management">Memory Management</h2>
+<h3 id="memory-leaks">Memory Leaks</h3>
+<h4 id="issue-memory-leaks">Issue: Memory Leaks</h4>
+<pre><code>Error: Memory leak detected
+</code></pre>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>Handle activity lifecycle:</li>
+</ol>
+<pre><code class="language-kotlin">override fun onDestroy() {
+    webView.clearCache(true)
+    webView.clearHistory()
+    webView.destroy()
+    super.onDestroy()
+}
+</code></pre>
+<ol>
+<li>Monitor memory:</li>
+</ol>
+<pre><code class="language-kotlin">class MemoryMonitor {
+    fun logMemoryInfo(context: Context) {
+        val runtime = Runtime.getRuntime()
+        val usedMemInMB = (runtime.totalMemory() - runtime.freeMemory()) / 1048576L
+        Log.d(&quot;MemoryMonitor&quot;, &quot;Used memory: $usedMemInMB MB&quot;)
+    }
+}
+</code></pre>
+<h2 id="debug-tools">Debug Tools</h2>
+<h3 id="logging">Logging</h3>
+<ol>
+<li>Enable SDK logging:</li>
+</ol>
+<pre><code class="language-kotlin">SquadSDK.setLogLevel(LogLevel.DEBUG)
+</code></pre>
+<ol>
+<li>Add debug interceptor:</li>
+</ol>
+<pre><code class="language-kotlin">class DebugInterceptor : Interceptor {
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val request = chain.request()
+        Log.d(&quot;SquadSDK&quot;, &quot;Request: ${request.url}&quot;)
+        return chain.proceed(request)
+    }
+}
+</code></pre>
+<h3 id="performance-monitoring">Performance Monitoring</h3>
+<p>Monitor WebView performance:</p>
+<pre><code class="language-kotlin">webView.setWebViewClient(object : WebViewClient() {
+    override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
+        startTime = System.currentTimeMillis()
+    }
+
+    override fun onPageFinished(view: WebView, url: String) {
+        val loadTime = System.currentTimeMillis() - startTime
+        Log.d(&quot;SquadSDK&quot;, &quot;Page load time: $loadTime ms&quot;)
+    }
+})
+</code></pre>
+<h2 id="configuration-changes">Configuration Changes</h2>
+<p>Handle configuration changes properly:</p>
+<pre><code class="language-kotlin">override fun onConfigurationChanged(newConfig: Configuration) {
+    super.onConfigurationChanged(newConfig)
+    // Handle configuration change
+    webView.requestLayout()
+}
+</code></pre>
+<h2 id="related-resources">Related Resources</h2>
+<ul>
+<li><a href="../../troubleshooting/">General Troubleshooting Guide</a></li>
+<li><a href="../configuration/">Android Configuration Guide</a></li>
+<li><a href="../webview/">Android WebView Management</a></li>
+<li><a href="../proguard/">ProGuard Configuration</a></li>
+</ul>
+<h2 id="support">Support</h2>
+<p>When contacting support, provide:</p>
+<ul>
+<li>Android Studio version</li>
+<li>Android OS version</li>
+<li>Device model</li>
+<li>SDK version</li>
+<li>Error logs</li>
+<li>Steps to reproduce</li>
+<li>Sample project (if possible)</li>
+<li>ProGuard mapping file (if applicable)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+    
+  </body>
+</html>
