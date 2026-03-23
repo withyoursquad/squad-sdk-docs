@@ -4,6 +4,23 @@ All notable changes to the Squad Sports SDK are documented here.
 
 ---
 
+## 1.3.1 — 2026-03-24
+
+### Added
+- Sponsorship placement framework: branded polls, sponsored content cards, chat-adjacent banners, and interstitial moments
+- Impression tracking with batched reporting
+- `setEnabled()` method for GDPR/CCPA analytics consent toggling
+- Silent re-auth for SSO sessions (in addition to partner sync)
+- Error message + retry button on SDK initialization failure
+- Full API parity across React Native, iOS, and Android
+
+### Fixed
+- Partner dashboard URL in error messages (now partners.squadforsports.com)
+- Auth tokens now stored in encrypted storage on all platforms
+- Community-scoped user search (partner data isolation)
+
+---
+
 ## 1.3.0 — 2026-03-23
 
 ### Added
