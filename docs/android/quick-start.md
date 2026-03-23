@@ -6,7 +6,7 @@ Add the Squad Sports SDK to your app's `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("com.squadsports:squad-sports-sdk:0.1.0")
+    implementation("com.squadsports:squad-sports-sdk:1.3.0")
 }
 ```
 

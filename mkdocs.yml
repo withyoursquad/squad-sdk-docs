@@ -1,5 +1,6 @@
-site_name: Squad Sports SDK
-site_description: Partner integration guide for the Squad Sports SDK
+site_name: Squad Sports SDK Docs
+site_description: Integration documentation for the Squad Sports SDK
+site_url: https://docs.withyoursquad.com
 theme:
   name: material
   palette:

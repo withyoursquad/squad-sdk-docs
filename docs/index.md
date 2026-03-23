@@ -1,6 +1,8 @@
 # Squad Sports SDK
 
-Drop-in social features for sports apps. Squad adds community, messaging, voice calls, polls, events, and more to your existing app with a single component.
+The Squad Sports SDK provides a complete, production-ready social experience for sports apps. Add community features, messaging, voice calls, polls, events, and rewards to your app in minutes — fully themed to your team's branding.
+
+**Current version: 1.3.0** | [Changelog](changelog.md)
 
 ## Quick Start
 
@@ -41,31 +43,36 @@ Drop-in social features for sports apps. Squad adds community, messaging, voice 
     SquadExperienceActivity.launch(this)
     ```
 
-## What You Get
+## Features
 
 | Feature | Description |
 |---------|-------------|
 | **Community Feed** | Freestyles (audio posts), reactions, community engagement |
-| **Messaging** | 1:1 and group messaging with audio messages |
+| **Messaging** | 1:1 messaging with audio messages and reactions |
 | **Squad Line** | Real-time voice calls between fans |
-| **Polls** | Interactive polls with live results |
+| **Polls** | Interactive polls with live results and nudges |
 | **Events** | Game-day attendance and check-ins |
 | **Wallet** | Rewards, coupons, and loyalty points |
+| **Partner Auth** | Seamless authentication from your existing user base |
+| **SSO** | Ticketmaster, OAuth2, and custom provider support |
 
-## Platform Guides
+## Platform Support
 
-- [React Native Quick Start](react-native/quick-start.md)
-- [iOS Quick Start](ios/quick-start.md)
-- [Android Quick Start](android/quick-start.md)
+| Platform | Version | Package |
+|----------|---------|---------|
+| React Native | 0.72+ | `@squad-sports/react-native` |
+| iOS | 15.0+ | `SquadSportsSDK` (Swift Package) |
+| Android | API 24+ | `com.squadsports:squad-sports-sdk` |
 
-## Requirements
+## Integration Guides
 
-| Platform | Minimum Version |
-|----------|----------------|
-| React Native | 0.72+ |
-| iOS | 15.0+ |
-| Android | API 24 (Android 7.0+) |
+- [Getting Started](getting-started/overview.md) — architecture and integration levels
+- [React Native](react-native/quick-start.md) — install, configure, embed
+- [iOS](ios/quick-start.md) — Swift Package Manager, UIKit, SwiftUI
+- [Android](android/quick-start.md) — Gradle, Compose, Activity embedding
+- [Authentication](getting-started/authentication.md) — OTP, SSO, Partner Auth
+- [Security](security.md) — token storage, transport, partner isolation
 
 ## Getting Your Credentials
 
-Contact your Squad partner manager or visit [partners.withyoursquad.com](https://partners.withyoursquad.com) to get your `partnerId` and `apiKey`.
+Your partner ID and API key are provided during onboarding. Contact your Squad partner manager or visit [partners.withyoursquad.com](https://partners.withyoursquad.com) to manage your integration.
