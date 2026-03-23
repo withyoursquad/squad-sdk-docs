@@ -21,9 +21,9 @@ The home screen. Fans post audio **Freestyles** (short voice recordings) and rea
 - Offline queue (messages sent when connectivity returns)
 - Conversation list with unread indicators
 
-## Squad Line
+## Squad Line (Coming Soon)
 
-Patented interactive voice calling. See [Squad Line](squad-line.md) for details.
+Patented interactive voice calling. See [Squad Line](squad-line.md) for details. Currently in development — disabled by default via feature flags.
 
 - Custom call titles
 - Real-time floating emoji reactions during calls
@@ -49,9 +49,9 @@ Game-day event attendance and check-ins.
 - Attendee list with avatars
 - Community-scoped events
 
-## Wallet
+## Wallet (Coming Soon)
 
-Rewards, coupons, and loyalty features.
+Rewards, coupons, and loyalty features. Currently in development — disabled by default via feature flags.
 
 - Coupon redemption with QR codes
 - Brand partnerships
@@ -92,14 +92,13 @@ All features are included and enabled by default. The full Squad experience is d
 Feature flags exist for cases where a specific partner agreement excludes a feature. They are not intended for ad-hoc toggling:
 
 ```tsx
-// Default: all features enabled. Only override per partner agreement.
 features: {
-  squadLine: true,   // Voice calls (patented)
+  squadLine: false,  // Voice calls (coming soon)
   freestyle: true,   // Audio posts
   messaging: true,   // 1:1 messaging
   polls: true,       // Interactive polls
   events: true,      // Event attendance
-  wallet: true,      // Rewards & coupons
+  wallet: false,     // Rewards & coupons (coming soon)
 }
 ```
 
