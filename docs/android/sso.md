@@ -7,7 +7,7 @@ val tmToken = TicketmasterAuth.getAccessToken()
 
 SquadSportsSDK.setup(
     context = this,
-    partnerId = "yinzcam-dc-united",
+    partnerId = "acme-sports",
     apiKey = "sqk_live_...",
     ssoToken = tmToken,
     ssoProvider = SSOProvider.TICKETMASTER,

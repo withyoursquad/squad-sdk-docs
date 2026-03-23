@@ -41,7 +41,7 @@ Provide your own encrypted storage adapter:
   config={{
     apiKey: "...",
     environment: "production",
-    community: { id: "64", name: "DC United", primaryColor: "#ef3e42" },
+    community: { id: "42", name: "My Team", primaryColor: "#002B5E" },
     storage: {
       getItem: (key) => MySecureStore.get(key),
       setItem: (key, value) => MySecureStore.set(key, value),

@@ -1,6 +1,6 @@
 site_name: Squad Sports SDK Docs
 site_description: Integration documentation for the Squad Sports SDK
-site_url: https://docs.withyoursquad.com
+site_url: https://docs.squadforsports.com
 theme:
   name: material
   palette:

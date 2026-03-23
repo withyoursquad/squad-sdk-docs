@@ -6,7 +6,7 @@
 let tmToken = try await TicketmasterAuth.shared.getAccessToken()
 
 try await SquadSportsSDK.setup(
-    partnerId: "yinzcam-dc-united",
+    partnerId: "acme-sports",
     apiKey: "sqk_live_...",
     ssoToken: tmToken,
     ssoProvider: .ticketmaster

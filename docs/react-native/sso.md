@@ -9,7 +9,7 @@ If your app uses Ticketmaster authentication, pass the TM access token and Squad
 const tmToken = await TicketmasterAuth.getAccessToken();
 
 <SquadExperience
-  partnerId="yinzcam-dc-united"
+  partnerId="acme-sports"
   apiKey="sqk_live_..."
   ssoToken={tmToken}
   ssoProvider="ticketmaster"
@@ -51,7 +51,7 @@ You can combine SSO with partner user data for the richest experience:
 
 ```tsx
 <SquadExperience
-  partnerId="yinzcam-dc-united"
+  partnerId="acme-sports"
   apiKey="sqk_live_..."
   ssoToken={tmToken}
   ssoProvider="ticketmaster"

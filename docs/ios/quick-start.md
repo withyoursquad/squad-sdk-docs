@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Task {
             try await SquadSportsSDK.setup(
-                partnerId: "yinzcam-dc-united",
+                partnerId: "acme-sports",
                 apiKey: "sqk_live_..."
             )
 
@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ```swift
 try await SquadSportsSDK.setup(
-    partnerId: "yinzcam-dc-united",
+    partnerId: "acme-sports",
     apiKey: "sqk_live_...",
     userData: PartnerUserData(
         email: currentUser.email,
@@ -67,7 +67,7 @@ try await SquadSportsSDK.setup(
 
 ```swift
 try await SquadSportsSDK.setup(
-    partnerId: "yinzcam-dc-united",
+    partnerId: "acme-sports",
     apiKey: "sqk_live_...",
     ssoToken: tmAccessToken,
     ssoProvider: .ticketmaster
@@ -96,7 +96,7 @@ struct ContentView: View {
         SquadExperienceView()
             .task {
                 try? await SquadSportsSDK.setup(
-                    partnerId: "yinzcam-dc-united",
+                    partnerId: "acme-sports",
                     apiKey: "sqk_live_..."
                 )
             }

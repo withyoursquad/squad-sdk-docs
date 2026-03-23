@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
         lifecycleScope.launch {
             SquadSportsSDK.setup(
                 context = this@MainActivity,
-                partnerId = "yinzcam-dc-united",
+                partnerId = "acme-sports",
                 apiKey = "sqk_live_...",
             )
             SquadExperienceActivity.launch(this@MainActivity)
@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
 ```kotlin
 SquadSportsSDK.setup(
     context = this,
-    partnerId = "yinzcam-dc-united",
+    partnerId = "acme-sports",
     apiKey = "sqk_live_...",
     userData = PartnerUserData(
         email = currentUser.email,
@@ -55,7 +55,7 @@ SquadSportsSDK.setup(
 ```kotlin
 SquadSportsSDK.setup(
     context = this,
-    partnerId = "yinzcam-dc-united",
+    partnerId = "acme-sports",
     apiKey = "sqk_live_...",
     ssoToken = tmAccessToken,
     ssoProvider = SSOProvider.TICKETMASTER,
@@ -72,7 +72,7 @@ fun MainScreen() {
     LaunchedEffect(Unit) {
         SquadSportsSDK.setup(
             context = context,
-            partnerId = "yinzcam-dc-united",
+            partnerId = "acme-sports",
             apiKey = "sqk_live_...",
         )
     }

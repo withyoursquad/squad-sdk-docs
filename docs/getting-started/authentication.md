@@ -59,7 +59,7 @@ Pass user data directly from your app. The SDK creates or syncs a Squad user via
       partnerId="your-id"
       apiKey="your-key"
       userData={{
-        email: "fan@dcunited.com",
+        email: "fan@myteam.com",
         displayName: "Alex Fan",
         externalUserId: "your-internal-user-id",
       }}
@@ -73,7 +73,7 @@ Pass user data directly from your app. The SDK creates or syncs a Squad user via
         partnerId: "your-id",
         apiKey: "your-key",
         userData: PartnerUserData(
-            email: "fan@dcunited.com",
+            email: "fan@myteam.com",
             displayName: "Alex Fan",
             externalUserId: "your-internal-user-id"
         )
@@ -88,7 +88,7 @@ Pass user data directly from your app. The SDK creates or syncs a Squad user via
         partnerId = "your-id",
         apiKey = "your-key",
         userData = PartnerUserData(
-            email = "fan@dcunited.com",
+            email = "fan@myteam.com",
             displayName = "Alex Fan",
             externalUserId = "your-internal-user-id",
         ),

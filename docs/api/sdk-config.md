@@ -7,7 +7,7 @@ The simple config — provide your partner ID and API key, everything else auto-
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `partnerId` | string | yes | Your partner ID from onboarding |
-| `apiKey` | string | yes | Your API key from partners.withyoursquad.com |
+| `apiKey` | string | yes | Your API key from partners.squadforsports.com |
 | `environment` | string | no | `"production"` (default), `"staging"`, `"development"` |
 | `ssoToken` | string | no | External SSO access token |
 | `ssoProvider` | string | no | `"ticketmaster"`, `"oauth2"`, `"custom"` |

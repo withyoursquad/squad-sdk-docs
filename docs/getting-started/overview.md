@@ -65,7 +65,7 @@ Provide every config value manually. Use this if you need custom environments, s
   config={{
     apiKey: "your-key",
     environment: "production",
-    community: { id: "64", name: "DC United", primaryColor: "#ef3e42" },
+    community: { id: "42", name: "My Team", primaryColor: "#002B5E" },
   }}
 />
 ```

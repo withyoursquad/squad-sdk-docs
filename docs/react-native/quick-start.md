@@ -26,7 +26,7 @@ import { SquadExperience } from '@squad-sports/react-native';
 export default function App() {
   return (
     <SquadExperience
-      partnerId="yinzcam-dc-united"
+      partnerId="acme-sports"
       apiKey="sqk_live_..."
       onReady={() => console.log('Squad ready')}
       onError={(err) => console.error('Squad error:', err)}
@@ -41,7 +41,7 @@ That's it. The SDK handles navigation, auth, theming, and all features.
 
 ```tsx
 <SquadExperience
-  partnerId="yinzcam-dc-united"
+  partnerId="acme-sports"
   apiKey="sqk_live_..."
   userData={{
     email: currentUser.email,
@@ -55,7 +55,7 @@ That's it. The SDK handles navigation, auth, theming, and all features.
 
 ```tsx
 <SquadExperience
-  partnerId="yinzcam-dc-united"
+  partnerId="acme-sports"
   apiKey="sqk_live_..."
   ssoToken={ticketmasterAccessToken}
   ssoProvider="ticketmaster"
@@ -87,7 +87,7 @@ import { SquadExperience } from '@squad-sports/react-native';
 function SquadTab() {
   return (
     <SquadExperience
-      partnerId="yinzcam-dc-united"
+      partnerId="acme-sports"
       apiKey="sqk_live_..."
       userData={{ email: user.email, displayName: user.name }}
     />

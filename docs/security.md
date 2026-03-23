@@ -44,7 +44,7 @@ Fallback: AsyncStorage (RN) or SharedPreferences (Android) if encrypted storage 
 - SDK version header sent on every request (`X-Squad-SDK-Version`)
 - 15-second request timeout (30s for uploads)
 - 429 rate limit responses include `Retry-After` header
-- CORS restricted to `*.withyoursquad.com` (browser requests only)
+- CORS restricted to `authorized origins` (browser requests only)
 
 ## Security Headers
 
@@ -60,4 +60,4 @@ X-XSS-Protection: 1; mode=block
 
 ## Reporting Vulnerabilities
 
-Email security@withyoursquad.com with details. We respond within 24 hours.
+Email security@squadforsports.com with details. We respond within 24 hours.
