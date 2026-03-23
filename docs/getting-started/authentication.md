@@ -111,5 +111,5 @@ At least one identifier (`email`, `phone`, or `externalUserId`) is required.
 
 - Tokens are stored in encrypted storage (Keychain on iOS, EncryptedSharedPreferences on Android, expo-secure-store on RN)
 - Sessions persist across app launches — returning users are auto-authenticated
-- On 401/403, the SDK attempts silent re-authentication (for partner auth flows) before showing a login screen
+- On 401/403, the SDK attempts silent re-authentication before showing a login screen. This works for both partner auth (re-syncs user data) and SSO flows (re-exchanges the SSO token)
 - Community scoping: if you change the community ID, previous tokens are cleared and the user re-authenticates

@@ -46,10 +46,15 @@ Provide your own encrypted storage adapter:
       getItem: (key) => MySecureStore.get(key),
       setItem: (key, value) => MySecureStore.set(key, value),
       removeItem: (key) => MySecureStore.remove(key),
+      // Optional batch operations for performance:
+      multiSet: (entries) => MySecureStore.multiSet(entries),
+      multiRemove: (keys) => MySecureStore.multiRemove(keys),
     },
   }}
 />
 ```
+
+By default, the SDK uses `SecureStorageAdapter` which routes auth tokens through `expo-secure-store` and non-sensitive data through `AsyncStorage`.
 
 ## Environment Selection
 

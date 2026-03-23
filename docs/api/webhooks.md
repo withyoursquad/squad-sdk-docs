@@ -30,7 +30,7 @@ Every webhook request includes an HMAC signature in the `X-Squad-Webhook-Signatu
 X-Squad-Webhook-Signature: sha256=<HMAC-SHA256 of request body>
 ```
 
-Verify the signature using your API key hash as the HMAC secret to confirm the request is from Squad.
+Verify the signature using your **webhook signing secret** as the HMAC key. Your signing secret is available in the partner dashboard under Settings > Webhooks. This is a separate value from your API key — do not use your API key for webhook verification.
 
 ## Events
 

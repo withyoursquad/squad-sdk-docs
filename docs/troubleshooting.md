@@ -30,7 +30,8 @@ Check network connectivity. The SDK makes a provision request at init. If the ne
 
 - The request will timeout after 15 seconds
 - `onError` callback will fire with a timeout error
-- The SDK will not render until init succeeds
+- The SDK will display an error message with a "Try Again" button
+- The `onError` callback is also fired so host apps can handle errors programmatically
 
 ### 429 Rate Limit Exceeded
 
@@ -86,7 +87,7 @@ The SDK sends its version on every request via the `X-Squad-SDK-Version` header.
 ### Verify API connectivity
 
 ```bash
-curl https://api.squadforsports.com/health
+curl https://api-release.withyoursquad.com/health
 ```
 
 Should return `{"status":"ok","checks":{"postgres":"ok","redis":"ok"}}`.

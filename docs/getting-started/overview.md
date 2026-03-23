@@ -72,7 +72,7 @@ Provide every config value manually. Use this if you need custom environments, s
 
 ## What Happens at Init
 
-1. SDK calls `GET /v2/partners/:partnerId/provision` with your API key
+1. SDK calls `GET /v2/partners/:partnerId/provision` with your API key (sent via `X-Squad-API-Key` header)
 2. Server returns community config, features, SSO settings, branding
 3. SDK builds full config automatically
 4. Session is restored from encrypted storage (if returning user)

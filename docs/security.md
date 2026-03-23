@@ -20,6 +20,14 @@
 
 Fallback: AsyncStorage (RN) or SharedPreferences (Android) if encrypted storage is unavailable. Only non-sensitive data uses the fallback.
 
+The React Native SDK uses a `SecureStorageAdapter` that routes keys based on sensitivity:
+
+**Encrypted (expo-secure-store):** access tokens, user IDs, email, phone, community ID, partner ID
+
+**Plain (AsyncStorage):** navigation state, UI preferences, non-auth data
+
+Partners can provide a custom `StorageAdapter` via the `storage` config option if their app has its own encrypted storage solution.
+
 ## Transport Security
 
 - All API communication over HTTPS (TLS 1.2+)
@@ -72,30 +80,30 @@ The SDK tracks analytics events by default. If your app requires GDPR/CCPA conse
     import { AnalyticsTracker } from '@squad-sports/core';
 
     // Disable tracking until user consents
-    AnalyticsTracker.shared.configure({ enabled: false });
+    AnalyticsTracker.shared.setEnabled(false);
 
     // After user grants consent:
-    AnalyticsTracker.shared.configure({ enabled: true });
+    AnalyticsTracker.shared.setEnabled(true);
     ```
 
 === "iOS"
 
     ```swift
     // Disable until consent
-    SquadAnalytics.shared.configure(partnerId: id, userId: uid, baseURL: url, enabled: false)
+    SquadAnalytics.shared.setEnabled(false)
 
     // After consent
-    SquadAnalytics.shared.configure(partnerId: id, userId: uid, baseURL: url, enabled: true)
+    SquadAnalytics.shared.setEnabled(true)
     ```
 
 === "Android"
 
     ```kotlin
     // Disable until consent
-    SquadAnalytics.configure(partnerId, userId, baseUrl, enabled = false)
+    SquadAnalytics.setEnabled(false)
 
     // After consent
-    SquadAnalytics.configure(partnerId, userId, baseUrl, enabled = true)
+    SquadAnalytics.setEnabled(true)
     ```
 
 When disabled, no analytics events are collected or sent. SDK functionality is unaffected.
@@ -107,6 +115,15 @@ Users can exercise their data rights through:
 - **Access**: User data is visible in the Profile and Settings screens within the SDK
 - **Deletion**: Users can request account deletion from Settings. Partners can also call `DELETE /v2/partners/:partnerId/users/:userId`
 - **Portability**: Contact support@squadforsports.com for data export requests
+
+## API Key Rotation
+
+If your API key is compromised:
+
+1. **Revoke immediately** via the partner dashboard (Settings > API Keys > Revoke)
+2. **Generate a new key** — a new key is active instantly
+3. **Update your app** — replace the old key in your SDK config and deploy
+4. Active SDK sessions using the revoked key will receive 401 errors and redirect to login. There is no grace period — revocation is immediate.
 
 ## Reporting Vulnerabilities
 
