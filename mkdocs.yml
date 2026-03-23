@@ -21,6 +21,7 @@ nav:
       - Requirements & Permissions: getting-started/requirements.md
       - Authentication: getting-started/authentication.md
       - Partner Auth: getting-started/partner-auth.md
+      - Push Notifications: getting-started/push-notifications.md
   - React Native:
       - Quick Start: react-native/quick-start.md
       - Configuration: react-native/configuration.md
@@ -36,6 +37,8 @@ nav:
   - API Reference:
       - SDK Config: api/sdk-config.md
       - Analytics: api/analytics.md
+      - Webhooks: api/webhooks.md
+      - Rate Limits: api/rate-limits.md
       - Error Handling: api/error-handling.md
   - Security: security.md
   - Troubleshooting: troubleshooting.md

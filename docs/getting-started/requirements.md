@@ -2,13 +2,34 @@
 
 ## SDK Size
 
-| Platform | Size Impact | Notes |
-|----------|-------------|-------|
-| React Native | ~2.8 MB | Includes core + RN bridge. Tree-shakes unused features. |
-| iOS | ~3.2 MB | Universal binary (arm64). Includes SwiftProtobuf + TwilioVoice. |
-| Android | ~2.5 MB | AAR with ProGuard rules. Includes OkHttp + Protobuf. |
+| Platform | SDK Code | With Squad Line | Without Squad Line | Notes |
+|----------|----------|-----------------|-------------------|-------|
+| React Native | ~1.4 MB | ~1.4 MB | ~1.4 MB | Twilio loaded via peer dep, not bundled |
+| iOS | ~1.6 MB | ~13.8 MB | ~2.8 MB | TwilioVoice.xcframework adds ~12 MB |
+| Android | ~1.5 MB | ~9.8 MB | ~2.8 MB | Twilio Voice SDK adds ~8 MB |
 
-Sizes measured as incremental app size increase (compressed, release build).
+Sizes are incremental app size increase (compressed, release build). The largest contributor is the Twilio Voice SDK for Squad Line. If your app doesn't use voice calls, you can exclude it to keep the impact under 3 MB.
+
+### Reducing SDK Size
+
+To exclude Squad Line (voice calls) and remove the Twilio dependency:
+
+=== "iOS"
+
+    Remove TwilioVoice from your Package.swift dependencies and set `features.squadLine = false` in your config.
+
+=== "Android"
+
+    Exclude the Twilio dependency in your `build.gradle.kts`:
+    ```kotlin
+    implementation("com.squadsports:squad-sports-sdk:1.3.0") {
+        exclude(group = "com.twilio", module = "voice-android")
+    }
+    ```
+
+=== "React Native"
+
+    Don't install `@twilio/voice-react-native-sdk`. It's an optional peer dependency — Squad Line will be disabled automatically.
 
 ## Required Permissions
 
