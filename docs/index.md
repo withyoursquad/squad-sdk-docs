@@ -49,7 +49,7 @@ The Squad Sports SDK provides a complete, production-ready social experience for
 |---------|-------------|
 | **Community Feed** | Freestyles (audio posts), reactions, community engagement |
 | **Messaging** | 1:1 messaging with audio messages and reactions |
-| **Squad Line** | Real-time voice calls between fans |
+| **[Squad Line](features/squad-line.md)** | Patented interactive voice calls with custom titles and live emoji reactions |
 | **Polls** | Interactive polls with live results and nudges |
 | **Events** | Game-day attendance and check-ins |
 | **Wallet** | Rewards, coupons, and loyalty points |

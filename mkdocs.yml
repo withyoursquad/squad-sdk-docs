@@ -23,6 +23,9 @@ nav:
       - Partner Auth: getting-started/partner-auth.md
       - Push Notifications: getting-started/push-notifications.md
       - Observability: getting-started/observability.md
+  - Features:
+      - Overview: features/overview.md
+      - Squad Line: features/squad-line.md
   - React Native:
       - Quick Start: react-native/quick-start.md
       - Configuration: react-native/configuration.md
@@ -44,6 +47,7 @@ nav:
   - Security: security.md
   - Troubleshooting: troubleshooting.md
   - Changelog: changelog.md
+  - Legal: legal.md
 markdown_extensions:
   - admonition
   - pymdownx.highlight

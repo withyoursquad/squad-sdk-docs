@@ -118,13 +118,13 @@ All data is encrypted in transit (TLS 1.2+) and sensitive data is encrypted at r
 
 ### Data Deletion
 
-Users can request account deletion from Settings within the Squad experience. Partners can also request user data deletion via the API:
+Users can request account deletion from Settings within the Squad experience. Partners can also request user data deletion via the partner API:
 
 ```
-POST /v2/users/rpc/deleteUser
+DELETE /v2/partners/:partnerId/users/:userId
 ```
 
-This queues a deletion request that removes all user data within 30 days, in compliance with GDPR and CCPA requirements.
+Requires your API key. Verifies the user belongs to your community. Queues a deletion request that removes all user data within 30 days, in compliance with GDPR and CCPA requirements.
 
 ## Third-Party Dependencies
 
