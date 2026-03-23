@@ -75,10 +75,8 @@ fun MainScreen() {
             partnerId = "acme-sports",
             apiKey = "sqk_live_...",
         )
-    }
-
-    if (SquadSportsSDK.isInitialized) {
-        SquadExperienceComposable()
+        // Launch the experience activity
+        SquadExperienceActivity.launch(context)
     }
 }
 ```
