@@ -1,32 +1,44 @@
-site_name: Squad SDK Documentation
+site_name: Squad Sports SDK
+site_description: Partner integration guide for the Squad Sports SDK
 theme:
   name: material
+  palette:
+    scheme: slate
+    primary: deep purple
+    accent: pink
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - content.code.copy
+    - content.code.annotate
 nav:
   - Home: index.md
-  - Concepts:
-      - Overview: concepts/index.md
-  - iOS:
-      - Overview: ios/getting-started.md
-      - Installation: ios/installation.md
-      - Configuration: ios/configuration.md
-      - SDK Init: ios/sdk-init.md
-      - User Auth: ios/user-auth.md
-      - WebView: ios/webview.md
-      - WebView Events: ios/webview-events.md
-      - Optimization: ios/optimization.md
-      - Troubleshooting: ios/troubleshooting.md
-  - Android:
-      - Overview: android/getting-started.md
-      - Installation: android/installation.md
-      - Configuration: android/configuration.md
-      - SDK Init: android/sdk-init.md
-      - User Auth: android/user-auth.md
-      - WebView: android/webview.md
-      - WebView Events: android/webview-events.md
-      - ProGuard: android/proguard.md
-      - Troubleshooting: android/troubleshooting.md
+  - Getting Started:
+      - Overview: getting-started/overview.md
+      - Authentication: getting-started/authentication.md
+      - Partner Auth: getting-started/partner-auth.md
   - React Native:
-      - Overview: react-native/getting-started.md
-  - Resources:
-      - FAQ: resources/faq.md
-      - Support: resources/support.md
+      - Quick Start: react-native/quick-start.md
+      - Configuration: react-native/configuration.md
+      - SSO Integration: react-native/sso.md
+  - iOS:
+      - Quick Start: ios/quick-start.md
+      - Configuration: ios/configuration.md
+      - SSO Integration: ios/sso.md
+  - Android:
+      - Quick Start: android/quick-start.md
+      - Configuration: android/configuration.md
+      - SSO Integration: android/sso.md
+  - API Reference:
+      - SDK Config: api/sdk-config.md
+      - Analytics: api/analytics.md
+      - Error Handling: api/error-handling.md
+  - Security: security.md
+  - Changelog: changelog.md
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list

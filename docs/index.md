@@ -1,48 +1,71 @@
-# Squad SDK Documentation
+# Squad Sports SDK
 
-Welcome to the documentation for the Squad SDK! This comprehensive guide covers everything you need to integrate Squad's social features, voice calling, and interactive elements into your mobile applications.
+Drop-in social features for sports apps. Squad adds community, messaging, voice calls, polls, events, and more to your existing app with a single component.
 
-## Getting Started
+## Quick Start
 
-- [Squad SDK Overview](overview.md)
-- [Key Concepts](concepts/index.md)
-- [iOS Quick Start](ios/getting-started.md)
-- [Android Quick Start](android/getting-started.md)
-- [React Native Quick Start](react-native/getting-started.md) (coming soon)
+=== "React Native"
 
-## Core Implementation
+    ```tsx
+    import { SquadExperience } from '@squad-sports/react-native';
 
-### SDK Integration
+    <SquadExperience
+      partnerId="your-partner-id"
+      apiKey="your-api-key"
+    />
+    ```
 
-- [SDK Initialization](sdk-init.md)
-- [User Authentication](user-init.md)
-- [WebView Integration](webview.md)
-- [Squad Experience](squad-experience.md)
+=== "iOS (Swift)"
 
-## Platform-Specific Guides
+    ```swift
+    import SquadSportsSDK
 
-### iOS Implementation
+    try await SquadSportsSDK.setup(
+        partnerId: "your-partner-id",
+        apiKey: "your-api-key"
+    )
+    let vc = SquadSportsSDK.shared.createExperienceViewController()
+    present(vc, animated: true)
+    ```
 
-- [Installation & Setup](ios/installation.md)
-- [Configuration Guide](ios/configuration.md)
-- [WebView Integration](ios/webview.md)
+=== "Android (Kotlin)"
 
-### Android Implementation
+    ```kotlin
+    import com.squadsports.sdk.SquadSportsSDK
 
-- [Installation & Setup](android/installation.md)
-- [Configuration Guide](android/configuration.md)
-- [WebView Management](android/webview.md)
+    SquadSportsSDK.setup(
+        context = this,
+        partnerId = "your-partner-id",
+        apiKey = "your-api-key",
+    )
+    SquadExperienceActivity.launch(this)
+    ```
 
-## Troubleshooting & Support
+## What You Get
 
-- [General Troubleshooting](troubleshooting.md)
+| Feature | Description |
+|---------|-------------|
+| **Community Feed** | Freestyles (audio posts), reactions, community engagement |
+| **Messaging** | 1:1 and group messaging with audio messages |
+| **Squad Line** | Real-time voice calls between fans |
+| **Polls** | Interactive polls with live results |
+| **Events** | Game-day attendance and check-ins |
+| **Wallet** | Rewards, coupons, and loyalty points |
 
-## Additional Resources
+## Platform Guides
 
-- [FAQ](resources/faq.md)
-- [Support Contact](resources/support.md)
+- [React Native Quick Start](react-native/quick-start.md)
+- [iOS Quick Start](ios/quick-start.md)
+- [Android Quick Start](android/quick-start.md)
 
-## Release Information
+## Requirements
 
-- [iOS SDK Releases](https://github.com/withyoursquad/squad-sports-ios/releases)
-- [Android SDK Releases](https://github.com/withyoursquad/squad-sports-android/releases)
+| Platform | Minimum Version |
+|----------|----------------|
+| React Native | 0.72+ |
+| iOS | 15.0+ |
+| Android | API 24 (Android 7.0+) |
+
+## Getting Your Credentials
+
+Contact your Squad partner manager or visit [partners.withyoursquad.com](https://partners.withyoursquad.com) to get your `partnerId` and `apiKey`.
