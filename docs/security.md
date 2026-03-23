@@ -42,21 +42,71 @@ Fallback: AsyncStorage (RN) or SharedPreferences (Android) if encrypted storage 
 ## Request Security
 
 - SDK version header sent on every request (`X-Squad-SDK-Version`)
+- Unique `X-Request-ID` on every response (for tracing and support)
 - 15-second request timeout (30s for uploads)
 - 429 rate limit responses include `Retry-After` header
-- CORS restricted to `authorized origins` (browser requests only)
+- CORS restricted to authorized origins (browser requests only)
 
 ## Security Headers
 
 All API responses include:
 
 ```
+X-Request-ID: <unique-uuid>
 X-Content-Type-Options: nosniff
 X-Frame-Options: DENY
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 Referrer-Policy: strict-origin-when-cross-origin
 X-XSS-Protection: 1; mode=block
 ```
+
+Include the `X-Request-ID` value when contacting support — it allows us to trace the exact request in our logs.
+
+## User Consent & GDPR
+
+The SDK tracks analytics events by default. If your app requires GDPR/CCPA consent before collecting data, disable analytics until consent is granted:
+
+=== "React Native"
+
+    ```tsx
+    import { AnalyticsTracker } from '@squad-sports/core';
+
+    // Disable tracking until user consents
+    AnalyticsTracker.shared.configure({ enabled: false });
+
+    // After user grants consent:
+    AnalyticsTracker.shared.configure({ enabled: true });
+    ```
+
+=== "iOS"
+
+    ```swift
+    // Disable until consent
+    SquadAnalytics.shared.configure(partnerId: id, userId: uid, baseURL: url, enabled: false)
+
+    // After consent
+    SquadAnalytics.shared.configure(partnerId: id, userId: uid, baseURL: url, enabled: true)
+    ```
+
+=== "Android"
+
+    ```kotlin
+    // Disable until consent
+    SquadAnalytics.configure(partnerId, userId, baseUrl, enabled = false)
+
+    // After consent
+    SquadAnalytics.configure(partnerId, userId, baseUrl, enabled = true)
+    ```
+
+When disabled, no analytics events are collected or sent. SDK functionality is unaffected.
+
+### User Data Rights
+
+Users can exercise their data rights through:
+
+- **Access**: User data is visible in the Profile and Settings screens within the SDK
+- **Deletion**: Users can request account deletion from Settings. Partners can also call `DELETE /v2/partners/:partnerId/users/:userId`
+- **Portability**: Contact support@squadforsports.com for data export requests
 
 ## Reporting Vulnerabilities
 

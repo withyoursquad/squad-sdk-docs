@@ -22,6 +22,7 @@ nav:
       - Authentication: getting-started/authentication.md
       - Partner Auth: getting-started/partner-auth.md
       - Push Notifications: getting-started/push-notifications.md
+      - Observability: getting-started/observability.md
   - React Native:
       - Quick Start: react-native/quick-start.md
       - Configuration: react-native/configuration.md
