@@ -1,293 +1,96 @@
-# Squad SDK Troubleshooting Guide
-
-This guide covers common issues, solutions, and best practices for troubleshooting the Squad SDK across all supported platforms.
+# Troubleshooting
 
 ## Common Issues
 
-### SDK Initialization
+### "API_KEY_REQUIRED" on init
 
-#### Issue: SDK Initialization Failure
+Your API key is missing or invalid. Ensure you pass it to the SDK:
 
-```
-Error: Squad SDK initialization failed
-```
-
-**Possible Causes:**
-
-- Invalid API credentials
-- Network connectivity issues
-- Incorrect initialization order
-- Missing configuration
-
-**Solutions:**
-
-1. Verify API credentials
-2. Check network connectivity
-3. Ensure proper initialization sequence
-4. Verify configuration parameters
-
-### Authentication
-
-#### Issue: Authentication Failures
-
-```
-Error: Authentication failed: Invalid credentials
+```tsx
+<SquadExperience partnerId="your-id" apiKey="sqk_live_..." />
 ```
 
-**Common Causes:**
+If you don't have an API key, contact your Squad partner manager.
 
-- Expired tokens
-- Invalid email format
-- Network timeout
-- Server connectivity issues
+### "PARTNER_NOT_FOUND" on init
 
-**Solutions:**
+Your partner ID doesn't match any registered partner. Check:
 
-1. Verify token validity
-2. Check email format
-3. Implement retry logic
-4. Monitor network status
+1. Spelling is correct (case-sensitive)
+2. Your partner account is active at [partners.squadforsports.com](https://partners.squadforsports.com)
+3. You're using the correct environment (production vs staging)
 
-### WebView Integration
+### "PARTNER_MISMATCH" on provision
 
-#### Issue: WebView Loading Failures
+Your API key belongs to a different partner than the one you specified. Each API key is scoped to exactly one partner ID.
+
+### SDK hangs on initialization
+
+Check network connectivity. The SDK makes a provision request at init. If the network is unavailable:
+
+- The request will timeout after 15 seconds
+- `onError` callback will fire with a timeout error
+- The SDK will not render until init succeeds
+
+### 429 Rate Limit Exceeded
+
+The SDK automatically handles 429 responses by reading the `Retry-After` header and retrying. If you're seeing persistent 429s, your app may be making too many requests. Default limit is 600 requests/minute.
+
+### Audio permission denied
+
+Squad Line and audio messages require microphone access. Ensure your app declares the permission:
+
+- iOS: Add `NSMicrophoneUsageDescription` to `Info.plist`
+- Android: Add `RECORD_AUDIO` to `AndroidManifest.xml`
+
+### React Native navigation conflicts
+
+The SDK uses its own `NavigationContainer` with `independent={true}`. If you're seeing navigation issues, ensure you're not nesting `SquadExperience` inside another `NavigationContainer` without `independent` mode.
+
+### ProGuard / R8 stripping SDK classes
+
+Add to your `proguard-rules.pro`:
 
 ```
-Error: Failed to load Squad WebView
+-keep class com.squadsports.sdk.** { *; }
+-keep class withyoursquad.v2.** { *; }
 ```
 
-**Common Causes:**
+## Debugging
 
-- Memory constraints
-- Network connectivity
-- Invalid configuration
-- Resource loading failures
+### Enable debug logging
 
-**Solutions:**
+=== "React Native"
 
-1. Monitor memory usage
-2. Check network connectivity
-3. Verify WebView configuration
-4. Implement proper error handling
+    ```tsx
+    import { Logger } from '@squad-sports/core';
+    Logger.shared.configure({ minLevel: 'debug' });
+    ```
 
-## Network Issues
+=== "iOS"
 
-### Connection Problems
+    ```swift
+    SquadLogger.shared.minLevel = .debug
+    ```
 
-#### Symptoms:
+=== "Android"
 
-- Timeout errors
-- Network unreachable
-- SSL/TLS errors
+    ```kotlin
+    SquadLogger.minLevel = SquadLogLevel.DEBUG
+    ```
 
-#### Solutions:
+### Check SDK version
 
-1. Implement network status monitoring:
+The SDK sends its version on every request via the `X-Squad-SDK-Version` header. Check your network inspector to verify.
 
-```swift
-// iOS
-NetworkReachability.shared.monitor { status in
-    switch status {
-    case .connected:
-        // Handle connected state
-    case .disconnected:
-        // Handle disconnected state
-    }
-}
+### Verify API connectivity
+
+```bash
+curl https://api.squadforsports.com/health
 ```
 
-```kotlin
-// Android
-NetworkCallback().apply {
-    onAvailable { /* Handle connected state */ }
-    onLost { /* Handle disconnected state */ }
-}
-```
+Should return `{"status":"ok","checks":{"postgres":"ok","redis":"ok"}}`.
 
-2. Configure proper timeout values:
+## Support
 
-```swift
-// Example configuration
-let config = NetworkConfig(
-    connectionTimeout: 30,
-    readTimeout: 30,
-    writeTimeout: 30
-)
-```
-
-### Certificate Issues
-
-#### Symptoms:
-
-- SSL handshake failures
-- Certificate validation errors
-
-#### Solutions:
-
-1. Verify certificate pinning configuration
-2. Check SSL certificate validity
-3. Implement proper error handling
-
-## Voice Call Issues
-
-### Audio Problems
-
-#### Symptoms:
-
-- No audio
-- Poor audio quality
-- Echo/feedback
-
-#### Solutions:
-
-1. Check permissions
-2. Verify audio session configuration
-3. Monitor call quality metrics
-4. Implement audio routing logic
-
-### Call Connection Issues
-
-#### Symptoms:
-
-- Call setup failure
-- Dropped calls
-- Connection timeout
-
-#### Solutions:
-
-1. Verify network stability
-2. Check WebRTC configuration
-3. Monitor connection state
-4. Implement reconnection logic
-
-## Memory Management
-
-### Memory Warnings
-
-#### Symptoms:
-
-- App termination
-- Performance degradation
-- WebView reloads
-
-#### Solutions:
-
-1. Implement memory warning handlers
-2. Clear caches when appropriate
-3. Monitor memory usage
-4. Implement cleanup routines
-
-### Resource Leaks
-
-#### Symptoms:
-
-- Increasing memory usage
-- Degraded performance
-- Background resource usage
-
-#### Solutions:
-
-1. Implement proper cleanup
-2. Monitor resource usage
-3. Handle lifecycle events
-4. Release unused resources
-
-## Best Practices
-
-### Error Handling
-
-1. **Implement Comprehensive Error Handling**
-
-```swift
-func handleError(_ error: SquadError) {
-    switch error {
-    case .network(let networkError):
-        handleNetworkError(networkError)
-    case .authentication(let authError):
-        handleAuthError(authError)
-    case .webView(let webViewError):
-        handleWebViewError(webViewError)
-    }
-}
-```
-
-2. **Log Relevant Information**
-
-```swift
-func logError(_ error: Error) {
-    Logger.error("""
-        Error: \(error.localizedDescription)
-        Code: \(error.code)
-        Context: \(error.context)
-        Timestamp: \(Date())
-        """
-    )
-}
-```
-
-### Monitoring
-
-1. **Track Key Metrics**
-
-- Network performance
-- Memory usage
-- Error rates
-- User engagement
-
-2. **Implement Analytics**
-
-```swift
-func trackEvent(_ event: SquadEvent) {
-    Analytics.log(
-        event: event.name,
-        parameters: event.parameters
-    )
-}
-```
-
-## Debug Tools
-
-### SDK Logging
-
-Enable detailed logging:
-
-```swift
-SquadSDK.setLogLevel(.debug)
-```
-
-### Network Monitoring
-
-Monitor network requests:
-
-```swift
-SquadSDK.enableNetworkLogging(true)
-```
-
-## Support Resources
-
-### Getting Help
-
-1. **Documentation**
-
-   - Platform-specific guides
-
-2. **Support Channels**
-
-   - Email: support@squadforsports.com
-   - Support portal: support.squadforsports.com
-   - GitHub issues
-
-3. **Debug Information**
-   When reporting issues, include:
-   - SDK version
-   - Platform details
-   - Error logs
-   - Reproduction steps
-   - Context information
-
-## Platform-Specific Guides
-
-For platform-specific troubleshooting:
-
-- [iOS Troubleshooting](ios/troubleshooting.md)
-- [Android Troubleshooting](android/troubleshooting.md)
+For integration support, contact your Squad partner manager or email support@squadforsports.com.

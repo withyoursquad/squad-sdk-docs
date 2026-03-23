@@ -10,12 +10,15 @@ theme:
   features:
     - navigation.tabs
     - navigation.sections
+    - navigation.top
     - content.code.copy
     - content.code.annotate
+    - search.suggest
 nav:
   - Home: index.md
   - Getting Started:
       - Overview: getting-started/overview.md
+      - Requirements & Permissions: getting-started/requirements.md
       - Authentication: getting-started/authentication.md
       - Partner Auth: getting-started/partner-auth.md
   - React Native:
@@ -35,6 +38,7 @@ nav:
       - Analytics: api/analytics.md
       - Error Handling: api/error-handling.md
   - Security: security.md
+  - Troubleshooting: troubleshooting.md
   - Changelog: changelog.md
 markdown_extensions:
   - admonition
@@ -43,3 +47,4 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - attr_list
+  - tables
