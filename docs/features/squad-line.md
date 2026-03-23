@@ -35,23 +35,6 @@ The voice infrastructure uses Twilio under the hood for reliable, low-latency au
 
 Squad Line is included in the SDK by default. No additional setup is required beyond the standard SDK initialization.
 
-### Enabling / Disabling
-
-Squad Line is controlled by your partner feature flags. To disable it (and remove the Twilio dependency for a smaller SDK size):
-
-```tsx
-<SquadExperience
-  config={{
-    apiKey: "your-key",
-    environment: "production",
-    community: { ... },
-    features: { squadLine: false },
-  }}
-/>
-```
-
-See [Requirements & Permissions](../getting-started/requirements.md#reducing-sdk-size) for instructions on excluding the Twilio dependency to reduce bundle size.
-
 ### Permissions
 
 Squad Line requires microphone access. See [Requirements](../getting-started/requirements.md#required-permissions) for the required permission declarations.

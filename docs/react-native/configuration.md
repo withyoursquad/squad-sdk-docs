@@ -69,21 +69,22 @@ Provide your own encrypted storage adapter:
 
 ## Feature Flags
 
-Features are controlled by your partner tier. To override for testing:
+All features are enabled by default and included in the standard Squad experience. Feature flags are only used when a specific partner agreement excludes a feature:
 
 ```tsx
+// Only override per partner agreement — all features are on by default
 <SquadExperience
   config={{
     apiKey: "...",
     environment: "production",
     community: { ... },
     features: {
-      squadLine: true,
-      freestyle: true,
-      messaging: true,
-      polls: true,
-      events: false,   // disable events
-      wallet: false,    // disable wallet
+      squadLine: true,    // Patented voice calls
+      freestyle: true,    // Audio posts
+      messaging: true,    // 1:1 messaging
+      polls: true,        // Interactive polls
+      events: true,       // Event attendance
+      wallet: true,       // Rewards & coupons
     },
   }}
 />

@@ -12,10 +12,8 @@ yarn add @react-navigation/native @react-navigation/native-stack \
   react-native-gesture-handler react-native-reanimated \
   @react-native-async-storage/async-storage \
   @gorhom/bottom-sheet recoil \
-  expo-av expo-image
-
-# Recommended: encrypted token storage
-yarn add expo-secure-store
+  expo-av expo-image expo-secure-store \
+  @twilio/voice-react-native-sdk
 ```
 
 ## Basic Integration

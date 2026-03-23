@@ -85,13 +85,16 @@ Fan identity within the community.
 - Block / report functionality
 - Account deletion (GDPR compliant)
 
-## Feature Control
+## Feature Availability
 
-All features can be toggled per partner via feature flags:
+All features are included and enabled by default. The full Squad experience is designed to work as a complete package — each feature reinforces the others to drive fan engagement.
+
+Feature flags exist for cases where a specific partner agreement excludes a feature. They are not intended for ad-hoc toggling:
 
 ```tsx
+// Default: all features enabled. Only override per partner agreement.
 features: {
-  squadLine: true,   // Voice calls
+  squadLine: true,   // Voice calls (patented)
   freestyle: true,   // Audio posts
   messaging: true,   // 1:1 messaging
   polls: true,       // Interactive polls
@@ -100,4 +103,4 @@ features: {
 }
 ```
 
-Disabled features are hidden from the UI — no dead links or empty screens.
+When a feature is disabled, it is hidden from the UI entirely — no dead links or empty screens.
