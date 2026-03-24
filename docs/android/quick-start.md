@@ -2,23 +2,15 @@
 
 ## Installation
 
-Add JitPack to your `settings.gradle.kts`:
-
-```kotlin
-dependencyResolutionManagement {
-    repositories {
-        maven { setUrl("https://jitpack.io") }
-    }
-}
-```
-
-Then add the dependency in your module's `build.gradle.kts`:
+Add the Squad Sports SDK to your module's `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("com.github.withyoursquad:squad-sports-android:1.3.1")
+    implementation("com.squadforsports:squad-sports-sdk:1.3.1")
 }
 ```
+
+Maven Central is included in Android's default repositories — no custom repo URL needed.
 
 ## Basic Integration
 
