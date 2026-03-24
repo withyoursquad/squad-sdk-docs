@@ -34,7 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Task {
             try await SquadSportsSDK.setup(
                 partnerId: "acme-sports",
-                apiKey: "sqk_live_..."
+                apiKey: "sqk_live_...",
+                pushToken: deviceToken
             )
 
             await MainActor.run {

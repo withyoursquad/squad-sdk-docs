@@ -2,15 +2,25 @@
 
 ## Installation
 
-Add the Squad Sports SDK to your module's `build.gradle.kts`:
+Add the JitPack repository to your `settings.gradle.kts` (Maven Central support coming soon):
 
 ```kotlin
-dependencies {
-    implementation("com.squadforsports:squad-sports-sdk:1.3.2")
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven("https://jitpack.io")
+    }
 }
 ```
 
-Maven Central is included in Android's default repositories — no custom repo URL needed.
+Then add the SDK to your module's `build.gradle.kts`:
+
+```kotlin
+dependencies {
+    implementation("com.squadforsports:squad-sports-sdk:1.3.4")
+}
+```
 
 ## Basic Integration
 
@@ -27,6 +37,7 @@ class MainActivity : ComponentActivity() {
                 context = this@MainActivity,
                 partnerId = "acme-sports",
                 apiKey = "sqk_live_...",
+                pushToken = FirebaseMessaging.getInstance().token.await(),
             )
             SquadExperienceActivity.launch(this@MainActivity)
             finish()

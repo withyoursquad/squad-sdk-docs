@@ -114,9 +114,11 @@ This includes SwiftProtobuf and TwilioVoice as transitive dependencies.
 
 ### Android
 
+Add the JitPack repository to `settings.gradle.kts` (Maven Central coming soon), then add the dependency:
+
 ```kotlin
 dependencies {
-    implementation("com.squadforsports:squad-sports-sdk:1.3.2")
+    implementation("com.squadforsports:squad-sports-sdk:1.3.4")
 }
 ```
 

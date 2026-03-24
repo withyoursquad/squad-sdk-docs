@@ -76,7 +76,30 @@ The SDK includes push notification handlers for all platforms. You wire your app
 
 ### Step 2: Register device token
 
-The SDK needs your device's push token to send notifications. Forward it after obtaining from APNs / FCM:
+The simplest approach is to pass the push token directly in `setup()`:
+
+=== "iOS"
+
+    ```swift
+    try await SquadSportsSDK.setup(
+        partnerId: "acme-sports",
+        apiKey: "sqk_live_...",
+        pushToken: deviceTokenString
+    )
+    ```
+
+=== "Android"
+
+    ```kotlin
+    SquadSportsSDK.setup(
+        context = this,
+        partnerId = "acme-sports",
+        apiKey = "sqk_live_...",
+        pushToken = FirebaseMessaging.getInstance().token.await(),
+    )
+    ```
+
+Alternatively, you can register the token at any time after setup via `updateDeviceInfo()`:
 
 === "iOS"
 
