@@ -7,14 +7,14 @@ Add the Squad Sports SDK via Swift Package Manager:
 ```
 File > Add Package Dependencies...
 URL: https://github.com/withyoursquad/squad-sports-ios.git
-Version: 1.3.1
+Version: 1.3.2
 ```
 
 Or in `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/withyoursquad/squad-sports-ios.git", from: "1.3.1"),
+    .package(url: "https://github.com/withyoursquad/squad-sports-ios.git", from: "1.3.2"),
 ]
 ```
 

@@ -106,7 +106,7 @@ Add via Swift Package Manager:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/withyoursquad/squad-sports-ios.git", from: "1.3.1"),
+    .package(url: "https://github.com/withyoursquad/squad-sports-ios.git", from: "1.3.2"),
 ]
 ```
 
