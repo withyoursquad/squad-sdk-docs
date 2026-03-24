@@ -106,7 +106,7 @@ Add via Swift Package Manager:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/withyoursquad/squad-sports-ios.git", from: "1.3.2"),
+    .package(url: "https://github.com/withyoursquad/squad-sports-ios.git", from: "1.4.0"),
 ]
 ```
 
@@ -118,7 +118,7 @@ Add the JitPack repository to `settings.gradle.kts` (Maven Central coming soon),
 
 ```kotlin
 dependencies {
-    implementation("com.squadforsports:squad-sports-sdk:1.3.4")
+    implementation("com.squadforsports:squad-sports-sdk:1.4.0")
 }
 ```
 
