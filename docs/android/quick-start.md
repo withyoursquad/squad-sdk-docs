@@ -2,15 +2,23 @@
 
 ## Installation
 
-Add the Squad Sports SDK to your app's `build.gradle.kts`:
+Add JitPack to your `settings.gradle.kts`:
 
 ```kotlin
-dependencies {
-    implementation("com.squadsports:sdk:1.3.1")
+dependencyResolutionManagement {
+    repositories {
+        maven { setUrl("https://jitpack.io") }
+    }
 }
 ```
 
-Or via project-level dependency on the SDK module.
+Then add the dependency in your module's `build.gradle.kts`:
+
+```kotlin
+dependencies {
+    implementation("com.github.withyoursquad:squad-sports-android:1.3.1")
+}
+```
 
 ## Basic Integration
 

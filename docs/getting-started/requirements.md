@@ -116,7 +116,7 @@ This includes SwiftProtobuf and TwilioVoice as transitive dependencies.
 
 ```kotlin
 dependencies {
-    implementation("com.squadsports:sdk:1.3.1")
+    implementation("com.github.withyoursquad:squad-sports-android:1.3.1")
 }
 ```
 
