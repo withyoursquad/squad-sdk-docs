@@ -106,7 +106,7 @@ Add via Swift Package Manager. The SDK ships as a **precompiled XCFramework** â€
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/withyoursquad/squad-sports-ios.git", from: "1.4.0"),
+    .package(url: "https://github.com/withyoursquad/squad-sports-ios.git", from: "1.5.0"),
 ]
 ```
 
@@ -118,7 +118,7 @@ Add the JitPack repository to `settings.gradle.kts` (Maven Central coming soon),
 
 ```kotlin
 dependencies {
-    implementation("com.github.withyoursquad:squad-sports-android:1.4.3")
+    implementation("com.github.withyoursquad:squad-sports-android:1.5.0")
 }
 ```
 
