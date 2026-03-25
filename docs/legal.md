@@ -14,12 +14,13 @@ Partners are granted a license to use Squad Line as part of their SDK integratio
 
 ## SDK License
 
-The Squad Sports SDK is provided under a commercial license as part of your partner agreement. The SDK may not be:
+The Squad Sports SDK is proprietary software licensed under the terms of your Partner Agreement with Envested Inc (dba Squad). The SDK is licensed, not sold. You may use the SDK solely within your application(s) as described in your Partner Agreement. The SDK may not be:
 
 - Reverse-engineered, decompiled, or disassembled
 - Redistributed outside your application
-- Used to build a competing product
-- Modified in ways that circumvent security or licensing controls
+- Used to build a competing product or service
+- Modified in ways that circumvent security, licensing, or usage controls
+- Sublicensed, sold, or transferred to any third party
 
 ## Third-Party Licenses
 
