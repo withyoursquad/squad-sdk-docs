@@ -2,7 +2,7 @@
 
 The Squad Sports SDK provides a complete, production-ready social experience for sports apps. Add community features, messaging, voice calls, polls, events, and rewards to your app in minutes — fully themed to your team's branding.
 
-**Current version: 1.3.1** | [Changelog](changelog.md)
+**Current version: iOS 1.4.0 · Android 1.4.2** | [Changelog](changelog.md)
 
 ## Quick Start
 
