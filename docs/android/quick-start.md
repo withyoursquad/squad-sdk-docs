@@ -24,27 +24,21 @@ dependencies {
 
 ## Basic Integration
 
+Two lines of code. No coroutines, no lifecycle management — the SDK handles it.
+
 ```kotlin
-import com.squadsports.sdk.SquadSportsSDK
-import com.squadsports.sdk.SquadExperienceActivity
+// In Application.onCreate() or any Activity:
+SquadSportsSDK.setup(
+    context = this,
+    partnerId = "acme-sports",
+    apiKey = "sqk_live_...",
+)
 
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        lifecycleScope.launch {
-            SquadSportsSDK.setup(
-                context = this@MainActivity,
-                partnerId = "acme-sports",
-                apiKey = "sqk_live_...",
-                pushToken = FirebaseMessaging.getInstance().token.await(),
-            )
-            SquadExperienceActivity.launch(this@MainActivity)
-            finish()
-        }
-    }
-}
+// Launch the experience from any click handler:
+SquadExperienceActivity.launch(context)
 ```
+
+The SDK registers its own Activity in the manifest automatically — no manifest changes needed in your app.
 
 ## With Partner Auth (No Login Screen)
 
@@ -73,23 +67,17 @@ SquadSportsSDK.setup(
 )
 ```
 
-## Embedding in a Compose App
+## Push Notifications
+
+Pass the FCM token at setup:
 
 ```kotlin
-@Composable
-fun MainScreen() {
-    val context = LocalContext.current
-
-    LaunchedEffect(Unit) {
-        SquadSportsSDK.setup(
-            context = context,
-            partnerId = "acme-sports",
-            apiKey = "sqk_live_...",
-        )
-        // Launch the experience activity
-        SquadExperienceActivity.launch(context)
-    }
-}
+SquadSportsSDK.setup(
+    context = this,
+    partnerId = "acme-sports",
+    apiKey = "sqk_live_...",
+    pushToken = FirebaseMessaging.getInstance().token.await(),
+)
 ```
 
 ## Requirements

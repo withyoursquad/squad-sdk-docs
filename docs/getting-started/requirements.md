@@ -102,7 +102,7 @@ yarn add @twilio/voice-react-native-sdk
 
 ### iOS
 
-Add via Swift Package Manager:
+Add via Swift Package Manager. The SDK ships as a **precompiled XCFramework** — no source compilation required.
 
 ```swift
 dependencies: [
@@ -110,7 +110,7 @@ dependencies: [
 ]
 ```
 
-This includes SwiftProtobuf and TwilioVoice as transitive dependencies.
+The XCFramework bundles all SDK code. SwiftProtobuf and TwilioVoice are resolved as transitive dependencies via SPM.
 
 ### Android
 

@@ -4,6 +4,52 @@ All notable changes to the Squad Sports SDK are documented here.
 
 ---
 
+## 1.4.3 — 2026-03-25
+
+### Fixed
+- Android: `SquadExperienceActivity` now auto-registers in SDK manifest (no manual manifest entry needed by integrator)
+- Android: JitPack build coordinate corrected to `com.github.withyoursquad:squad-sports-android`
+
+---
+
+## 1.4.2 — 2026-03-25
+
+### Fixed
+- Android: build config aligned with JitPack publishing coordinates
+- Internal docs updated to match current `setup()` API across all platforms
+
+---
+
+## 1.4.1 — 2026-03-25
+
+### Fixed
+- API key now required in all `setup()` examples across docs and sample apps
+- Stale `initialize()` / `configure()` references removed from internal docs
+
+---
+
+## 1.4.0 — 2026-03-25
+
+### Added
+- Full squad-demo parity across all platforms (React Native, iOS, Android)
+- `pushToken` parameter on `setup()` for all platforms — pass your device token at initialization
+- Automated release pipeline (CI/CD) with Makefile sync verification
+- 27 new tests covering sponsorship placements and push token registration
+
+### Changed
+- All `setup()` examples require `apiKey` parameter (previously optional in some docs)
+
+---
+
+## 1.3.4 — 2026-03-24
+
+### Fixed
+- Android: JitPack `jitpack.yml` added for JDK 17 builds
+- Android: manifest permissions for INTERNET, RECORD_AUDIO, CAMERA, VIBRATE, POST_NOTIFICATIONS
+- Android: `security-crypto` version pinned for EncryptedSharedPreferences compatibility
+
+---
+
 ## 1.3.1 — 2026-03-24
 
 ### Added
