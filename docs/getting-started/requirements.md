@@ -118,7 +118,7 @@ Add the JitPack repository to `settings.gradle.kts` (Maven Central coming soon),
 
 ```kotlin
 dependencies {
-    implementation("com.squadforsports:squad-sports-sdk:1.4.0")
+    implementation("com.squadforsports:squad-sports-sdk:1.4.1")
 }
 ```
 
