@@ -61,7 +61,7 @@ The Squad Sports SDK provides a complete, production-ready social experience for
 | Platform | Version | Package |
 |----------|---------|---------|
 | React Native | 0.72+ | `@squad-sports/react-native` |
-| iOS | 15.0+ | `SquadSportsSDK` (Swift Package) |
+| iOS | 16.0+ | `SquadSportsSDK` (Swift Package) |
 | Android | API 24+ | `com.github.withyoursquad:squad-sports-android` |
 
 ## Integration Guides

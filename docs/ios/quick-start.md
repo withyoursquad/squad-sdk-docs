@@ -107,6 +107,6 @@ struct ContentView: View {
 
 ## Requirements
 
-- iOS 15.0+
+- iOS 16.0+
 - Xcode 15+
 - Swift 5.9+
