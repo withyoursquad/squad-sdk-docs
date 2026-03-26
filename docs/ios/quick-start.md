@@ -32,14 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 
         Task {
-            try await SquadSportsSDK.setup(
+            try await SquadSDK.setup(
                 partnerId: "acme-sports",
                 apiKey: "sqk_live_...",
                 pushToken: deviceToken
             )
 
             await MainActor.run {
-                let vc = SquadSportsSDK.shared.createExperienceViewController()
+                let vc = SquadSDK.shared.createExperienceViewController()
                 window?.rootViewController = vc
                 window?.makeKeyAndVisible()
             }
@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ## With Partner Auth (No Login Screen)
 
 ```swift
-try await SquadSportsSDK.setup(
+try await SquadSDK.setup(
     partnerId: "acme-sports",
     apiKey: "sqk_live_...",
     userData: PartnerUserData(
@@ -67,7 +67,7 @@ try await SquadSportsSDK.setup(
 ## With Ticketmaster SSO
 
 ```swift
-try await SquadSportsSDK.setup(
+try await SquadSDK.setup(
     partnerId: "acme-sports",
     apiKey: "sqk_live_...",
     ssoToken: tmAccessToken,
@@ -78,7 +78,7 @@ try await SquadSportsSDK.setup(
 ## Embedding in a Tab
 
 ```swift
-let squadVC = SquadSportsSDK.shared.createExperienceViewController()
+let squadVC = SquadSDK.shared.createExperienceViewController()
 tabBarController.viewControllers = [
     homeVC,
     squadVC,  // Squad as a tab
@@ -96,7 +96,7 @@ struct ContentView: View {
     var body: some View {
         SquadExperienceView()
             .task {
-                try? await SquadSportsSDK.setup(
+                try? await SquadSDK.setup(
                     partnerId: "acme-sports",
                     apiKey: "sqk_live_..."
                 )

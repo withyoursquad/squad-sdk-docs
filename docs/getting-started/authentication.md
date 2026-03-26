@@ -26,7 +26,7 @@ Exchange an external identity token for a Squad session. Users already logged in
 === "iOS"
 
     ```swift
-    try await SquadSportsSDK.setup(
+    try await SquadSDK.setup(
         partnerId: "your-id",
         apiKey: "your-key",
         ssoToken: externalAccessToken,
@@ -69,7 +69,7 @@ Pass user data directly from your app. The SDK creates or syncs a Squad user via
 === "iOS"
 
     ```swift
-    try await SquadSportsSDK.setup(
+    try await SquadSDK.setup(
         partnerId: "your-id",
         apiKey: "your-key",
         userData: PartnerUserData(

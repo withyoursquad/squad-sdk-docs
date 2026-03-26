@@ -33,7 +33,7 @@ Tokens are stored in the iOS Keychain by default. No configuration needed.
 
 ```swift
 do {
-    try await SquadSportsSDK.setup(partnerId: "your-id", apiKey: "your-key")
+    try await SquadSDK.setup(partnerId: "your-id", apiKey: "your-key")
 } catch SquadSDKError.partnerNotFound(let id) {
     print("Partner \(id) not found")
 } catch SquadSDKError.invalidPartnerID {
@@ -46,5 +46,5 @@ do {
 ## Cleanup
 
 ```swift
-SquadSportsSDK.shared = nil
+SquadSDK.shared = nil
 ```

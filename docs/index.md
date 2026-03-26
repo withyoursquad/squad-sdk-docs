@@ -22,11 +22,11 @@ The Squad Sports SDK provides a complete, production-ready social experience for
     ```swift
     import SquadSportsSDK
 
-    try await SquadSportsSDK.setup(
+    try await SquadSDK.setup(
         partnerId: "your-partner-id",
         apiKey: "your-api-key"
     )
-    let vc = SquadSportsSDK.shared.createExperienceViewController()
+    let vc = SquadSDK.shared.createExperienceViewController()
     present(vc, animated: true)
     ```
 

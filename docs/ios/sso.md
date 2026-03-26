@@ -5,7 +5,7 @@
 ```swift
 let tmToken = try await TicketmasterAuth.shared.getAccessToken()
 
-try await SquadSportsSDK.setup(
+try await SquadSDK.setup(
     partnerId: "acme-sports",
     apiKey: "sqk_live_...",
     ssoToken: tmToken,
@@ -16,7 +16,7 @@ try await SquadSportsSDK.setup(
 ## OAuth2
 
 ```swift
-try await SquadSportsSDK.setup(
+try await SquadSDK.setup(
     partnerId: "your-id",
     apiKey: "your-key",
     ssoToken: oauthToken,
@@ -27,7 +27,7 @@ try await SquadSportsSDK.setup(
 ## Post-Init SSO
 
 ```swift
-let success = await SquadSportsSDK.shared.authenticateWithSSO(
+let success = await SquadSDK.shared.authenticateWithSSO(
     provider: .ticketmaster,
     token: tmToken
 )

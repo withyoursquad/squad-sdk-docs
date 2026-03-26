@@ -47,7 +47,7 @@ The SDK includes push notification handlers for all platforms. You wire your app
         ) async {
             let userInfo = response.notification.request.content.userInfo
             if let action = SquadPushHandler.handleNotification(userInfo: userInfo) {
-                SquadSportsSDK.shared?.router?.push(action.route)
+                SquadSDK.shared?.router?.push(action.route)
             }
         }
     }
@@ -81,7 +81,7 @@ The simplest approach is to pass the push token directly in `setup()`:
 === "iOS"
 
     ```swift
-    try await SquadSportsSDK.setup(
+    try await SquadSDK.setup(
         partnerId: "acme-sports",
         apiKey: "sqk_live_...",
         pushToken: deviceTokenString
@@ -107,7 +107,7 @@ Alternatively, you can register the token at any time after setup via `updateDev
     func application(_ application: UIApplication,
                      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
-        SquadSportsSDK.shared?.apiClient.updateDeviceInfo(token: token, platform: "ios")
+        SquadSDK.shared?.apiClient.updateDeviceInfo(token: token, platform: "ios")
     }
     ```
 
