@@ -4,6 +4,26 @@ All notable changes to the Squad Sports SDK are documented here.
 
 ---
 
+## 1.5.0 — 2026-03-26
+
+### Added
+- First integrator release — SDK is production-ready for partner integration (DC United / YinzCam pilot)
+- Precompiled XCFramework distribution for iOS (binary-only, no source compilation required)
+- Pre-built AAR distribution for Android via JitPack
+- Automated release pipeline: `make release VERSION=x.y.z` triggers CI/CD across all repos
+- `SquadExperienceActivity` auto-registers in Android manifest (zero manual setup for integrators)
+
+### Changed
+- All SDK version headers now report `1.5.0` in API requests (iOS, Android, TypeScript)
+- Release workflow builds and distributes binaries to deploy repos automatically
+
+### Fixed
+- Android compilation errors in monorepo source
+- iOS FeatureFlags test defaults
+- Release workflow YAML heredoc syntax
+
+---
+
 ## 1.4.3 — 2026-03-25
 
 ### Fixed
