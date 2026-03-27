@@ -18,7 +18,7 @@ Then add the SDK to your module's `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("com.github.withyoursquad:squad-sports-android:1.5.0")
+    implementation("com.github.withyoursquad:squad-sports-android:1.6.0")
 }
 ```
 
