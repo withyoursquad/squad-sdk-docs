@@ -1,10 +1,10 @@
 # Webhooks
 
-Receive real-time events from Squad when actions occur in your community. Configure a webhook URL in your partner settings to get notified.
+Receive real-time events from Squad when actions occur in your community.
 
 ## Setup
 
-Provide your webhook URL during onboarding or update it via the partner dashboard at [partners.squadforsports.com](https://partners.squadforsports.com).
+Webhook URLs are configured by your Squad partner manager. Provide your endpoint URL during onboarding. To add or update a webhook destination after go-live, email [support@squadforsports.com](mailto:support@squadforsports.com) or contact your partner manager directly.
 
 ## Event Format
 
@@ -30,7 +30,7 @@ Every webhook request includes an HMAC signature in the `X-Squad-Webhook-Signatu
 X-Squad-Webhook-Signature: sha256=<HMAC-SHA256 of request body>
 ```
 
-Verify the signature using your **webhook signing secret** as the HMAC key. Your signing secret is available in the partner dashboard under Settings > Webhooks. This is a separate value from your API key — do not use your API key for webhook verification.
+Verify the signature using your **webhook signing secret** as the HMAC key. Your signing secret is issued by your Squad partner manager alongside your API key during onboarding. This is a separate value from your API key — do not use your API key for webhook verification.
 
 ## Events
 

@@ -81,7 +81,7 @@ All notable changes to the Squad Sports SDK are documented here.
 - Full API parity across React Native, iOS, and Android
 
 ### Fixed
-- Partner dashboard URL in error messages (now partners.squadforsports.com)
+- Partner contact details in error messages
 - Auth tokens now stored in encrypted storage on all platforms
 - Community-scoped user search (partner data isolation)
 

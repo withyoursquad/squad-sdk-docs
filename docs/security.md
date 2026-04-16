@@ -5,7 +5,7 @@
 - Your API key authenticates all SDK requests
 - Keys are hashed (SHA-256) before storage — the raw key is never in our database
 - Each key is scoped to one partner — no cross-partner access
-- Keys can be revoked instantly via the partner dashboard
+- Keys can be revoked by your Squad partner manager — email [security@squadforsports.com](mailto:security@squadforsports.com) for urgent revocation
 - Rate limited: 600 requests/minute per key (configurable per tier)
 
 **Never commit your API key to version control.** Use environment variables or a secrets manager.
@@ -120,9 +120,9 @@ Users can exercise their data rights through:
 
 If your API key is compromised:
 
-1. **Revoke immediately** via the partner dashboard (Settings > API Keys > Revoke)
-2. **Generate a new key** — a new key is active instantly
-3. **Update your app** — replace the old key in your SDK config and deploy
+1. **Notify Squad immediately** — email [security@squadforsports.com](mailto:security@squadforsports.com) and your partner manager. Include your partner ID and the approximate time of compromise.
+2. **Squad revokes the old key and issues a replacement** — typically within 1 business hour for urgent security incidents.
+3. **Update your app** — replace the old key in your SDK config and deploy.
 4. Active SDK sessions using the revoked key will receive 401 errors and redirect to login. There is no grace period — revocation is immediate.
 
 ## Reporting Vulnerabilities

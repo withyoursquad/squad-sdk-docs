@@ -17,7 +17,7 @@ If you don't have an API key, contact your Squad partner manager.
 Your partner ID doesn't match any registered partner. Check:
 
 1. Spelling is correct (case-sensitive)
-2. Your partner account is active at [partners.squadforsports.com](https://partners.squadforsports.com)
+2. Your partner account is active — contact your Squad partner manager if unsure
 3. You're using the correct environment (production vs staging)
 
 ### "PARTNER_MISMATCH" on provision

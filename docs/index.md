@@ -75,4 +75,6 @@ The Squad Sports SDK provides a complete, production-ready social experience for
 
 ## Getting Your Credentials
 
-Your partner ID and API key are provided during onboarding. Contact your Squad partner manager or visit [partners.squadforsports.com](https://partners.squadforsports.com) to manage your integration.
+The Squad Sports SDK is distributed to partners through a direct onboarding process — there is no self-serve signup. Your partner ID, API key, and webhook signing secret are issued by your Squad partner manager.
+
+To start an integration or request new credentials, email [support@squadforsports.com](mailto:support@squadforsports.com) or contact your Squad partner manager directly.

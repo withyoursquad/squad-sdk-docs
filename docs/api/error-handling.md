@@ -5,7 +5,7 @@
 | Error | Cause | Resolution |
 |-------|-------|------------|
 | `API_KEY_REQUIRED` | Missing apiKey in config | Provide your API key |
-| `PARTNER_NOT_FOUND` | Invalid partnerId | Check your partner ID at partners.squadforsports.com |
+| `PARTNER_NOT_FOUND` | Invalid partnerId | Verify your partner ID with your Squad partner manager |
 | `PARTNER_MISMATCH` | API key doesn't match partner | Use the correct API key for your partner |
 | `INVALID_TOKEN` | Auth token expired or invalid | SDK auto-handles via silent re-auth |
 | `RATE_LIMIT_EXCEEDED` | Too many requests | SDK auto-retries with Retry-After |

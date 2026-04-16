@@ -53,4 +53,4 @@ The following analytics events are tracked automatically:
 | `call_ended` | Call ends (includes duration) |
 | `reaction_sent` | Emoji reaction sent during call |
 
-These events are available in your partner analytics dashboard and via the custom analytics adapter.
+These events are emitted through the SDK's analytics pipeline — forward them to your own analytics stack (Mixpanel, Amplitude, etc.) via the custom analytics adapter. See [Analytics](../api/analytics.md) for details.
